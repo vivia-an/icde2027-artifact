@@ -1,0 +1,16 @@
+id: T0-optim-lr-positive
+template: PAYLOAD_FIELD_COMPARE
+family: F4
+min_tier: T0_PYTORCH
+description: >
+  Every optimizer param_group must contain a positive 'lr'.
+evidence_bugs:
+  - sanity
+scope:
+  hookpoint: build.snapshot
+  payload_path: $.optimizer.param_groups[*]
+bound:
+  kind: bound
+  field: lr
+  op: ">"
+  value: 0

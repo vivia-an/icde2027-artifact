@@ -1,0 +1,94 @@
+{
+ "evidence": {
+  "hook_in_witness": true,
+  "mode": "guarded",
+  "report_hook": "fw.param_local_step",
+  "window": 2
+ },
+ "form": "tuple",
+ "id": "G8_owner_consistency",
+ "notes": "Owner consistency [guarded]: on every rank that does not own the object, the record at fw.param_local_step (before the owner's broadcast) at step s equals the record at fw.param_after_step at step s-1 (only the owner may change it).",
+ "phase": {
+  "eq": [
+   [
+    "t1.rank",
+    "t2.rank"
+   ],
+   [
+    "t1.obj",
+    "t2.obj"
+   ],
+   [
+    "t1.slice",
+    "t2.slice"
+   ]
+  ],
+  "hooks": {
+   "t1": [
+    "fw.param_local_step"
+   ],
+   "t2": [
+    "fw.param_after_step"
+   ]
+  },
+  "steps": [
+   {
+    "base": "t1",
+    "offset": -1,
+    "var": "t2"
+   }
+  ]
+ },
+ "pre": {
+  "args": [
+   {
+    "args": [
+     {
+      "attr": "t1.owner"
+     }
+    ],
+    "op": "is_not_null"
+   },
+   {
+    "args": [
+     {
+      "attr": "t1.owner"
+     },
+     {
+      "attr": "t1.rank"
+     }
+    ],
+    "op": "ne"
+   }
+  ],
+  "op": "and"
+ },
+ "profile": "layout_v3",
+ "schema": {
+  "args": [
+   {
+    "attr": "t1.cksum"
+   },
+   {
+    "attr": "t2.cksum"
+   }
+  ],
+  "op": "eq"
+ },
+ "vars": [
+  {
+   "name": "t1",
+   "rel": "State"
+  },
+  {
+   "name": "t2",
+   "rel": "State"
+  }
+ ],
+ "witness": [
+  "t1.step",
+  "t1.obj",
+  "t1.hook",
+  "t1.rank"
+ ]
+}

@@ -1,0 +1,15 @@
+id: T0-optim-step-counter-monotonic
+template: PAYLOAD_FIELD_COMPARE
+family: F5
+min_tier: T0_PYTORCH
+description: >
+  Optimizer state['step'] (max across params) must strictly increment with
+  each optim.step() call. Catches OC-NEW-2 (SkipStepAdamW commented out
+  step.add_(...), so Adam bias correction never updates).
+evidence_bugs:
+  - OC-NEW-2
+scope:
+  hookpoint: optim.step.post
+bound:
+  kind: monotonic
+  field: state_step_max

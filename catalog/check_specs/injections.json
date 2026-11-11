@@ -1,0 +1,247 @@
+{
+ "note": "E12 / BENCH.md A12 injection list; INJ_STEP = 5 (c, g2: step 0, construction-time misconfigurations); injected rank = last rank",
+ "injections": [
+  {
+   "id": "d2_user_hook_sum",
+   "kind": "user_hook_sum",
+   "class": "symmetric",
+   "localized": false,
+   "all_params": true,
+   "bracket": "outside",
+   "targets": {
+    "ddp2": [],
+    "ddp4": [],
+    "zero1": [],
+    "tp2dp2": [],
+    "fsdp2": [],
+    "ddp2bf16": [],
+    "fsdp2bf16": []
+   },
+   "description": "sum without divide, outside the probes: DDP-based layouts: the training script registers its own DDP communication hook on every rank (allreduce_hook semantics before step 5, all-reduce SUM without dividing by the group size from step 5); the probes are post-accumulate-grad hooks and param.grad after backward, not in the hook. fsdp2/fsdp2bf16: divide-factor misconfiguration at step 5 (set_force_sum_reduction_for_comms(True) + set_gradient_divide_factor(1.0) on every FSDP module)"
+  },
+  {
+   "id": "g2_ddp_ignore_param",
+   "kind": "ddp_ignore_param",
+   "class": "missing-record",
+   "localized": true,
+   "bracket": "outside",
+   "targets": {
+    "ddp2": [
+     "blocks.0.mlp.fc2.weight"
+    ],
+    "ddp4": [
+     "blocks.0.mlp.fc2.weight"
+    ],
+    "zero1": [
+     "blocks.0.mlp.fc2.weight"
+    ],
+    "tp2dp2": [
+     "blocks.0.mlp.fc2.weight"
+    ]
+   },
+   "description": "one parameter left out of every DDP bucket: it is put on DDP's params-to-ignore list (DDP._set_params_and_buffers_to_ignore_for_model) on every rank before wrapping, so DDP never synchronizes its gradient (from step 0); a per-rank ignore list is rejected by DDP's construction-time check"
+  },
+  {
+   "id": "a_rank_param_mod",
+   "kind": "rank_param_mod",
+   "class": "asymmetric",
+   "localized": true,
+   "targets": {
+    "ddp2": [
+     "blocks.0.mlp.fc1.weight"
+    ],
+    "ddp4": [
+     "blocks.0.mlp.fc1.weight"
+    ],
+    "zero1": [
+     "blocks.0.mlp.fc1.weight"
+    ],
+    "fsdp2": [
+     "blocks.0.mlp.fc1.weight"
+    ],
+    "tp2dp2": [
+     "blocks.0.mlp.fc1.weight"
+    ],
+    "pp2": [
+     "tok_emb.weight",
+     "lm_head.weight"
+    ],
+    "ddp2bf16": [
+     "blocks.0.mlp.fc1.weight"
+    ],
+    "fsdp2bf16": [
+     "blocks.0.mlp.fc1.weight"
+    ]
+   },
+   "description": "at the start of step 5 the last rank adds N(0, 0.02^2) noise to its local copy/shard of one parameter (pp2: the tied LM head on stage 1)"
+  },
+  {
+   "id": "b_skip_param_group",
+   "kind": "skip_param_group",
+   "class": "asymmetric",
+   "localized": true,
+   "targets": {
+    "ddp2": [
+     "blocks.0.attn.k.bias",
+     "blocks.0.attn.proj.bias",
+     "blocks.0.attn.q.bias",
+     "blocks.0.attn.v.bias",
+     "blocks.0.ln1.bias",
+     "blocks.0.ln1.weight",
+     "blocks.0.ln2.bias",
+     "blocks.0.ln2.weight",
+     "blocks.0.mlp.fc1.bias",
+     "blocks.0.mlp.fc2.bias",
+     "blocks.1.attn.k.bias",
+     "blocks.1.attn.proj.bias",
+     "blocks.1.attn.q.bias",
+     "blocks.1.attn.v.bias",
+     "blocks.1.ln1.bias",
+     "blocks.1.ln1.weight",
+     "blocks.1.ln2.bias",
+     "blocks.1.ln2.weight",
+     "blocks.1.mlp.fc1.bias",
+     "blocks.1.mlp.fc2.bias",
+     "lm_head.bias",
+     "ln_f.bias",
+     "ln_f.weight"
+    ],
+    "ddp4": [
+     "blocks.0.attn.k.bias",
+     "blocks.0.attn.proj.bias",
+     "blocks.0.attn.q.bias",
+     "blocks.0.attn.v.bias",
+     "blocks.0.ln1.bias",
+     "blocks.0.ln1.weight",
+     "blocks.0.ln2.bias",
+     "blocks.0.ln2.weight",
+     "blocks.0.mlp.fc1.bias",
+     "blocks.0.mlp.fc2.bias",
+     "blocks.1.attn.k.bias",
+     "blocks.1.attn.proj.bias",
+     "blocks.1.attn.q.bias",
+     "blocks.1.attn.v.bias",
+     "blocks.1.ln1.bias",
+     "blocks.1.ln1.weight",
+     "blocks.1.ln2.bias",
+     "blocks.1.ln2.weight",
+     "blocks.1.mlp.fc1.bias",
+     "blocks.1.mlp.fc2.bias",
+     "lm_head.bias",
+     "ln_f.bias",
+     "ln_f.weight"
+    ],
+    "tp2dp2": [
+     "blocks.0.attn.k.bias",
+     "blocks.0.attn.proj.bias",
+     "blocks.0.attn.q.bias",
+     "blocks.0.attn.v.bias",
+     "blocks.0.ln1.bias",
+     "blocks.0.ln1.weight",
+     "blocks.0.ln2.bias",
+     "blocks.0.ln2.weight",
+     "blocks.0.mlp.fc1.bias",
+     "blocks.0.mlp.fc2.bias",
+     "blocks.1.attn.k.bias",
+     "blocks.1.attn.proj.bias",
+     "blocks.1.attn.q.bias",
+     "blocks.1.attn.v.bias",
+     "blocks.1.ln1.bias",
+     "blocks.1.ln1.weight",
+     "blocks.1.ln2.bias",
+     "blocks.1.ln2.weight",
+     "blocks.1.mlp.fc1.bias",
+     "blocks.1.mlp.fc2.bias",
+     "lm_head.bias",
+     "ln_f.bias",
+     "ln_f.weight"
+    ]
+   },
+   "description": "from step 5 the last rank's optimizer skips parameter group 1 (all 1-D parameters): their gradients are set to None before optimizer.step()"
+  },
+  {
+   "id": "b2_zero1_owner_lr",
+   "kind": "zero_owner_lr",
+   "class": "symmetric-after-broadcast",
+   "localized": true,
+   "targets": {
+    "zero1": []
+   },
+   "description": "ZeRO-1: from step 5 the last rank (single owner of its shard) uses lr x 10 for both parameter groups; its updated parameters are broadcast. targets = the parameters that rank owns plus the per-group lr objects"
+  },
+  {
+   "id": "c_tp_norm_partial",
+   "kind": "tp_norm_partial",
+   "class": "asymmetric",
+   "localized": true,
+   "targets": {
+    "tp2dp2": [
+     "blocks.1.ln2.weight",
+     "blocks.1.ln2.bias"
+    ]
+   },
+   "description": "blocks.1.ln2 is left out of the SequenceParallel plan (from step 0): its parameter gradients are partial per TP rank and never all-reduced over TP"
+  },
+  {
+   "id": "f_no_accum_divisor",
+   "kind": "no_accum_divisor",
+   "class": "symmetric",
+   "localized": false,
+   "all_params": true,
+   "targets": {
+    "ddp2": [],
+    "ddp4": [],
+    "zero1": [],
+    "fsdp2": [],
+    "tp2dp2": [],
+    "pp2": []
+   },
+   "description": "from step 5 gradient accumulation without the loss divisor (pp2: the schedule's scale_grads is set to False)"
+  },
+  {
+   "id": "h_skip_opt_step",
+   "kind": "skip_opt_step",
+   "class": "missing-marker",
+   "localized": false,
+   "all_params": true,
+   "targets": {
+    "ddp2": [],
+    "ddp4": [],
+    "fsdp2": [],
+    "tp2dp2": [],
+    "pp2": []
+   },
+   "description": "at step 5 the last rank skips optimizer.step() (and its step marker); n/a on zero1 (the step contains collectives: deadlock)"
+  },
+  {
+   "id": "i_fsdp2_stale_gather",
+   "kind": "stale_gather",
+   "class": "symmetric",
+   "localized": true,
+   "targets": {
+    "fsdp2": [
+     "1"
+    ]
+   },
+   "target_params": [
+    "blocks.1.attn.k.bias",
+    "blocks.1.attn.k.weight",
+    "blocks.1.attn.proj.bias",
+    "blocks.1.attn.proj.weight",
+    "blocks.1.attn.q.bias",
+    "blocks.1.attn.q.weight",
+    "blocks.1.attn.v.bias",
+    "blocks.1.attn.v.weight",
+    "blocks.1.ln1.bias",
+    "blocks.1.ln1.weight",
+    "blocks.1.ln2.bias",
+    "blocks.1.ln2.weight",
+    "blocks.1.mlp.fc1.bias",
+    "blocks.1.mlp.fc1.weight",
+    "blocks.1.mlp.fc2.bias",
+    "blocks.1.mlp.fc2.weight"
+   ],
+   "description": "from step 5 blocks.1 keeps its all-gathered parameters across the optimizer step (set_reshard_after_forward(False), set_reshard_after_backward(False))"
+  }
+ ]
+}

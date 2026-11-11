@@ -1,0 +1,436 @@
+{
+ "aggregates": {
+  "g_max": {
+   "arg": {
+    "attr": "t.sum"
+   },
+   "filter": {
+    "args": [
+     {
+      "attr": "t.hook"
+     },
+     {
+      "str": "fw.param_gathered"
+     }
+    ],
+    "op": "eq"
+   },
+   "fn": "max"
+  },
+  "g_min": {
+   "arg": {
+    "attr": "t.sum"
+   },
+   "filter": {
+    "args": [
+     {
+      "attr": "t.hook"
+     },
+     {
+      "str": "fw.param_gathered"
+     }
+    ],
+    "op": "eq"
+   },
+   "fn": "min"
+  },
+  "g_n": {
+   "arg": null,
+   "filter": {
+    "args": [
+     {
+      "attr": "t.hook"
+     },
+     {
+      "str": "fw.param_gathered"
+     }
+    ],
+    "op": "eq"
+   },
+   "fn": "count"
+  },
+  "g_sq_max": {
+   "arg": {
+    "args": [
+     {
+      "attr": "t.l2"
+     },
+     {
+      "attr": "t.l2"
+     }
+    ],
+    "op": "mul"
+   },
+   "filter": {
+    "args": [
+     {
+      "attr": "t.hook"
+     },
+     {
+      "str": "fw.param_gathered"
+     }
+    ],
+    "op": "eq"
+   },
+   "fn": "max"
+  },
+  "g_sq_min": {
+   "arg": {
+    "args": [
+     {
+      "attr": "t.l2"
+     },
+     {
+      "attr": "t.l2"
+     }
+    ],
+    "op": "mul"
+   },
+   "filter": {
+    "args": [
+     {
+      "attr": "t.hook"
+     },
+     {
+      "str": "fw.param_gathered"
+     }
+    ],
+    "op": "eq"
+   },
+   "fn": "min"
+  },
+  "numel": {
+   "arg": {
+    "attr": "t.numel"
+   },
+   "filter": {
+    "args": [
+     {
+      "attr": "t.hook"
+     },
+     {
+      "str": "fw.param_gathered"
+     }
+    ],
+    "op": "eq"
+   },
+   "fn": "max"
+  },
+  "s_exp": {
+   "arg": {
+    "attr": "t.rest_nslices"
+   },
+   "filter": {
+    "args": [
+     {
+      "attr": "t.hook"
+     },
+     {
+      "str": "fw.param_after_step"
+     }
+    ],
+    "op": "eq"
+   },
+   "fn": "max"
+  },
+  "s_l2": {
+   "arg": {
+    "attr": "t.l2"
+   },
+   "filter": {
+    "args": [
+     {
+      "attr": "t.hook"
+     },
+     {
+      "str": "fw.param_after_step"
+     }
+    ],
+    "op": "eq"
+   },
+   "fn": "sum"
+  },
+  "s_n": {
+   "arg": null,
+   "filter": {
+    "args": [
+     {
+      "attr": "t.hook"
+     },
+     {
+      "str": "fw.param_after_step"
+     }
+    ],
+    "op": "eq"
+   },
+   "fn": "count"
+  },
+  "s_slices": {
+   "arg": {
+    "attr": "t.slice"
+   },
+   "filter": {
+    "args": [
+     {
+      "attr": "t.hook"
+     },
+     {
+      "str": "fw.param_after_step"
+     }
+    ],
+    "op": "eq"
+   },
+   "fn": "count_distinct"
+  },
+  "s_sq": {
+   "arg": {
+    "args": [
+     {
+      "attr": "t.l2"
+     },
+     {
+      "attr": "t.l2"
+     }
+    ],
+    "op": "mul"
+   },
+   "filter": {
+    "args": [
+     {
+      "attr": "t.hook"
+     },
+     {
+      "str": "fw.param_after_step"
+     }
+    ],
+    "op": "eq"
+   },
+   "fn": "sum"
+  },
+  "s_sum": {
+   "arg": {
+    "attr": "t.sum"
+   },
+   "filter": {
+    "args": [
+     {
+      "attr": "t.hook"
+     },
+     {
+      "str": "fw.param_after_step"
+     }
+    ],
+    "op": "eq"
+   },
+   "fn": "sum"
+  }
+ },
+ "align": {
+  "fw.param_after_step": 1
+ },
+ "evidence": {
+  "hook_in_witness": false,
+  "mode": "guarded",
+  "report_hook": "fw.param_gathered",
+  "tolerance": 1e-05,
+  "window": 2
+ },
+ "extensions": [
+  "E4-multi-aggregate",
+  "E6-aligned-step"
+ ],
+ "form": "aggregate_aligned",
+ "group_by": [
+  "t.astep",
+  "t.rkey",
+  "t.gkey"
+ ],
+ "hooks": [
+  "fw.param_gathered",
+  "fw.param_after_step"
+ ],
+ "id": "G7_gather_consistency",
+ "notes": "Gather consistency [guarded]: per (step s, rkey, persistent-shard key), the sum and the sum of squares of every gathered copy at fw.param_gathered (step s) equal the sum / sum of squares over the at-rest shards at fw.param_after_step (step s-1), within 1e-05 x sqrt(numel) x sum(l2_shards) and 1e-05 x sum(l2_shards^2). Groups with fewer at-rest slices than Obj declares are skipped.",
+ "profile": "layout_v3",
+ "theta": {
+  "args": [
+   {
+    "args": [
+     {
+      "agg": "g_n"
+     },
+     0
+    ],
+    "op": "eq"
+   },
+   {
+    "args": [
+     {
+      "agg": "s_slices"
+     },
+     {
+      "agg": "s_exp"
+     }
+    ],
+    "op": "lt"
+   },
+   {
+    "args": [
+     {
+      "args": [
+       {
+        "args": [
+         {
+          "args": [
+           {
+            "agg": "g_max"
+           },
+           {
+            "agg": "s_sum"
+           }
+          ],
+          "op": "sub"
+         }
+        ],
+        "fn": "abs"
+       },
+       {
+        "args": [
+         1e-05,
+         {
+          "args": [
+           {
+            "args": [
+             {
+              "agg": "numel"
+             }
+            ],
+            "fn": "sqrt"
+           },
+           {
+            "agg": "s_l2"
+           }
+          ],
+          "op": "mul"
+         }
+        ],
+        "op": "mul"
+       }
+      ],
+      "op": "le"
+     },
+     {
+      "args": [
+       {
+        "args": [
+         {
+          "args": [
+           {
+            "agg": "g_min"
+           },
+           {
+            "agg": "s_sum"
+           }
+          ],
+          "op": "sub"
+         }
+        ],
+        "fn": "abs"
+       },
+       {
+        "args": [
+         1e-05,
+         {
+          "args": [
+           {
+            "args": [
+             {
+              "agg": "numel"
+             }
+            ],
+            "fn": "sqrt"
+           },
+           {
+            "agg": "s_l2"
+           }
+          ],
+          "op": "mul"
+         }
+        ],
+        "op": "mul"
+       }
+      ],
+      "op": "le"
+     },
+     {
+      "args": [
+       {
+        "args": [
+         {
+          "args": [
+           {
+            "agg": "g_sq_max"
+           },
+           {
+            "agg": "s_sq"
+           }
+          ],
+          "op": "sub"
+         }
+        ],
+        "fn": "abs"
+       },
+       {
+        "args": [
+         1e-05,
+         {
+          "agg": "s_sq"
+         }
+        ],
+        "op": "mul"
+       }
+      ],
+      "op": "le"
+     },
+     {
+      "args": [
+       {
+        "args": [
+         {
+          "args": [
+           {
+            "agg": "g_sq_min"
+           },
+           {
+            "agg": "s_sq"
+           }
+          ],
+          "op": "sub"
+         }
+        ],
+        "fn": "abs"
+       },
+       {
+        "args": [
+         1e-05,
+         {
+          "agg": "s_sq"
+         }
+        ],
+        "op": "mul"
+       }
+      ],
+      "op": "le"
+     }
+    ],
+    "op": "and"
+   }
+  ],
+  "op": "or"
+ },
+ "witness": [
+  "t.astep",
+  "t.rkey",
+  "t.gkey"
+ ]
+}

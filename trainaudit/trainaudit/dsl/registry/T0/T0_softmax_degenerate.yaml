@@ -1,0 +1,33 @@
+id: T0-softmax-degenerate
+template: TENSOR_STAT_BOUND
+family: F8
+min_tier: T0_PYTORCH
+description: >
+  Softmax / router-style outputs must NOT be a degenerate one-hot
+  distribution (every row max == 1 with all mass on one position).
+  Catches M-014 (Megatron MoE Router topk=1 + post-softmax → softmax of
+  single value = 1.0 everywhere, zero gradient through router).
+evidence_bugs:
+  - M-014
+scope:
+  # Two scopes covered by the same predicate via multi-hookpoint.
+  # Module-class filter (Router/Gate/TopK) is applied as a precondition;
+  # functional.softmax events have no module_class so the precondition
+  # ignores the LIKE check on those events.
+  hookpoint:
+    - module.fwd.post
+    - functional.softmax
+  payload_path: $.output
+  tensor_signature: true
+precondition:
+  expr: |
+    hookpoint = 'functional.softmax'
+    OR json_extract_string(payload, '$.module_class') LIKE '%Router%'
+    OR json_extract_string(payload, '$.module_class') LIKE '%Gate%'
+    OR json_extract_string(payload, '$.module_class') LIKE '%TopK%'
+    OR json_extract_string(payload, '$.module_class') LIKE '%MoEGate%'
+    OR json_extract_string(payload, '$.module_class') LIKE '%ExpertSelector%'
+bound:
+  kind: equality
+  field: one_hot
+  value: false

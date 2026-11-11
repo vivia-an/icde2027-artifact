@@ -1,0 +1,17 @@
+id: T0-token-id-in-vocab
+template: TENSOR_STAT_BOUND
+family: F9
+min_tier: T0_PYTORCH
+description: >
+  Input IDs from DataLoader must not be absurdly large (>2^20). The
+  full vocab-bound check is a T1 feature; T0 checks only universal sanity.
+evidence_bugs:
+  - O-NEW-9
+scope:
+  hookpoint: dataloader.batch
+  payload_path: $.input_ids
+bound:
+  kind: bound
+  field: max
+  op: "<="
+  value: 1048576   # 2^20

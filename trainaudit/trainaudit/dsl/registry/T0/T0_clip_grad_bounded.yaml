@@ -1,0 +1,20 @@
+id: T0-clip-grad-bounded
+template: PAYLOAD_FIELD_COMPARE
+family: F2
+min_tier: T0_PYTORCH
+description: >
+  After clip_grad_norm_, total grad norm must be <= max_norm
+  (within 1% tolerance).
+evidence_bugs:
+  - B11
+scope:
+  hookpoint: utils.clip_grad.post
+bound:
+  # invariant: post_norm must be <= max_norm (within rel tolerance below)
+  kind: bound
+  field: post_norm
+  op: "<="
+  value: max_norm
+  value_is_field: true
+tolerance:
+  rel: 0.01

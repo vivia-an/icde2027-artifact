@@ -1,0 +1,26 @@
+id: T1-residual-stream-preserved
+template: PAYLOAD_FIELD_COMPARE
+family: F7
+min_tier: T1_FW_METADATA
+description: >
+  In an OLMo residual block, the block's output should remain closer to
+  the block's *original* input than to the attn_norm-output. Catches
+  B13 / O-002 (in-place attn_norm clobbered the residual variable, so
+  identity path used normed x instead of original x).
+  The OLMo adapter active probe (adapters/olmo.py) wraps
+  OLMoSequentialBlock.forward and emits residual.probe with pre-computed
+  (d_to_original_input, d_to_normed_input), so the rule body is
+  dsl_native — invariant: d_to_normed_input >= d_to_original_input.
+evidence_bugs:
+  - B13
+  - O-002
+scope:
+  hookpoint: residual.probe
+bound:
+  # invariant: d_to_normed_input >= d_to_original_input;
+  # violation when output is closer to normed than to original.
+  kind: bound
+  field: d_to_normed_input
+  op: ">="
+  value: d_to_original_input
+  value_is_field: true

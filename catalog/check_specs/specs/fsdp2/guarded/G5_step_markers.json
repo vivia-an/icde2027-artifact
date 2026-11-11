@@ -1,0 +1,45 @@
+{
+ "domain": {
+  "vars": [
+   {
+    "name": "k",
+    "rel": "Ranks"
+   },
+   {
+    "name": "s",
+    "rel": "Steps"
+   }
+  ],
+  "where": null
+ },
+ "evidence": {
+  "hook_in_witness": false,
+  "mode": "guarded",
+  "obj_in_witness": false,
+  "report_hook": "fw.marker",
+  "window": 1
+ },
+ "form": "completeness",
+ "id": "G5_step_markers",
+ "match": [
+  [
+   "k.rank",
+   "t.rank"
+  ],
+  [
+   "s.step",
+   "t.step"
+  ]
+ ],
+ "notes": "Step-marker completeness [guarded]: every rank of Topo has a step marker at every punctuated step.",
+ "profile": "layout_v3",
+ "target": {
+  "hooks": null,
+  "rel": "Marker",
+  "var": "t"
+ },
+ "witness": [
+  "s.step",
+  "k.rank"
+ ]
+}

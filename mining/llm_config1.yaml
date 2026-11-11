@@ -1,0 +1,15 @@
+specializations:
+  test_mini: gpt-4o-mini-direct
+  test: gpt-4o-direct
+  data_extraction: gpt-4.1-mini-direct
+  structured_output: gpt-4.1-mini-direct
+  conversation: gpt-4.1-direct
+  default: gpt-4.1-direct
+
+models:
+  o3-mini-direct:
+    name: o3-mini-direct
+    model: o3-mini
+    type: openai
+    api_key: ${OPENAI_API_KEY}
+    timeout: 3600

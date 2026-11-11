@@ -1,0 +1,68 @@
+# Keys via environment only — never commit secrets.
+#   export DEEPSEEK_API_KEY=...
+#   export OPENAI_API_KEY=...
+specializations:
+  test_mini: deepseek-chat-direct
+  test: deepseek-chat-direct
+  data_extraction: deepseek-chat-direct
+  structured_output: deepseek-chat-direct
+  conversation: deepseek-chat-direct
+  default: deepseek-chat-direct
+
+models:
+  deepseek-chat-direct:
+    name: deepseek-chat-direct
+    model: deepseek-v4-pro
+    type: openai
+    api_key: ${DEEPSEEK_API_KEY}
+    base_url: https://api.deepseek.com/v1
+    timeout: 3600
+  deepseek-v4-flash-direct:
+    name: deepseek-v4-flash-direct
+    model: deepseek-v4-flash
+    type: openai
+    api_key: ${DEEPSEEK_API_KEY}
+    base_url: https://api.deepseek.com/v1
+    timeout: 3600
+  o3-mini-direct:
+    name: o3-mini-direct
+    model: o3-mini
+    type: openai
+    api_key: ${OPENAI_API_KEY}
+    timeout: 3600
+  o4-mini-direct:
+    name: o4-mini-direct
+    model: o4-mini
+    type: openai
+    api_key: ${OPENAI_API_KEY}
+    timeout: 3600
+  gpt-4.1-direct:
+    name: gpt-4.1-direct
+    model: gpt-4.1
+    type: openai
+    api_key: ${OPENAI_API_KEY}
+    timeout: 3600
+  gpt-4.1-mini-direct:
+    name: gpt-4.1-mini-direct
+    model: gpt-4.1-mini
+    type: openai
+    api_key: ${OPENAI_API_KEY}
+    timeout: 3600
+  gpt-4.1-nano-direct:
+    name: gpt-4.1-nano-direct
+    model: gpt-4.1-nano
+    type: openai
+    api_key: ${OPENAI_API_KEY}
+    timeout: 3600
+  gpt-4o-mini-direct:
+    name: gpt-4o-mini-direct
+    model: gpt-4o-mini
+    type: openai
+    api_key: ${OPENAI_API_KEY}
+    timeout: 3600
+  gpt-4o-direct:
+    name: gpt-4o-direct
+    model: gpt-4o
+    type: openai
+    api_key: ${OPENAI_API_KEY}
+    timeout: 3600

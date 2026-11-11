@@ -1,0 +1,25 @@
+id: T0-no-nan-inf
+template: TENSOR_STAT_BOUND
+family: F8
+min_tier: T0_PYTORCH
+description: >
+  No traced tensor in any captured event should contain NaN or Inf.
+evidence_bugs:
+  - sanity
+scope:
+  hookpoint:
+    - module.fwd.pre
+    - module.fwd.post
+    - module.bwd
+    - optim.step.pre
+    - optim.step.post
+    - comm.pre
+    - comm.post
+    - build.snapshot
+  walk_tensor_summaries: true
+bound:
+  kind: equality
+  field:
+    - has_nan
+    - has_inf
+  value: false

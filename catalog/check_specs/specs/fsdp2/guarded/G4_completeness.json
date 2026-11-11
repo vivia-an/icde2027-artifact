@@ -1,0 +1,73 @@
+{
+ "domain": {
+  "vars": [
+   {
+    "name": "d",
+    "rel": "Obj"
+   },
+   {
+    "name": "s",
+    "rel": "Steps"
+   }
+  ],
+  "where": {
+   "args": [
+    {
+     "args": [
+      {
+       "attr": "d.hook"
+      },
+      {
+       "str": "fw.grad_post_sync"
+      }
+     ],
+     "op": "eq"
+    },
+    {
+     "attr": "d.requires_grad"
+    }
+   ],
+   "op": "and"
+  }
+ },
+ "evidence": {
+  "hook_in_witness": false,
+  "mode": "guarded",
+  "report_hook": "fw.grad_post_sync",
+  "window": 1
+ },
+ "form": "completeness",
+ "id": "G4_completeness",
+ "match": [
+  [
+   "d.rank",
+   "t.rank"
+  ],
+  [
+   "d.obj",
+   "t.obj"
+  ],
+  [
+   "d.slice",
+   "t.slice"
+  ],
+  [
+   "s.step",
+   "t.step"
+  ]
+ ],
+ "notes": "Completeness of synchronized records [guarded]: every (rank, obj, slice) declared at fw.grad_post_sync with requires_grad has a fw.grad_post_sync row at every punctuated step.",
+ "profile": "layout_v3",
+ "target": {
+  "hooks": [
+   "fw.grad_post_sync"
+  ],
+  "rel": "State",
+  "var": "t"
+ },
+ "witness": [
+  "s.step",
+  "d.obj",
+  "d.rank"
+ ]
+}

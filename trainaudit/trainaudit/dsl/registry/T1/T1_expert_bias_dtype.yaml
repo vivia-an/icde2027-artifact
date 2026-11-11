@@ -1,0 +1,22 @@
+id: T1-expert-bias-fp32
+template: PAYLOAD_FIELD_COMPARE
+family: F3
+min_tier: T1_FW_METADATA
+description: >
+  TopKRouter.expert_bias must remain fp32 across forwards. Catches M-012
+  (Float16Module silently demotes expert_bias to bf16/fp16, breaking
+  routing precision).
+evidence_bugs:
+  - M-012
+scope:
+  hookpoint: module.fwd.post
+precondition:
+  # Only check events from is_router modules; non-router events are skipped.
+  # Adapter's label_module attaches `expert_bias_dtype` only to router events.
+  expr: |
+    CAST(json_extract(payload, '$.semantic.is_router') AS BOOLEAN) = true
+    AND json_extract(payload, '$.semantic.expert_bias_dtype') IS NOT NULL
+bound:
+  kind: equality
+  field: semantic.expert_bias_dtype
+  value: float32

@@ -1,0 +1,1459 @@
+{
+ "ddp2/abl_early/G1_param_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.param_after_step"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "ddp2/abl_early/G2_grad_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.grad_pre_sync"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "ddp2/abl_early/G3_reduction": {
+  "class_rewrite": false,
+  "extensions": [
+   "E4-multi-aggregate"
+  ],
+  "form": "aggregate",
+  "hooks": [
+   "fw.grad_post_sync",
+   "fw.grad_pre_sync"
+  ],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "ddp2/abl_early/G4_completeness": {
+  "class_rewrite": false,
+  "extensions": [
+   "E5-domain-antijoin"
+  ],
+  "form": "completeness",
+  "hooks": [
+   "fw.grad_post_sync"
+  ],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "ddp2/abl_early/G5_step_markers": {
+  "class_rewrite": false,
+  "extensions": [
+   "E5-domain-antijoin"
+  ],
+  "form": "completeness",
+  "hooks": [],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "ddp2/abl_early/G6_hparam_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.opt_hparam"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "ddp2/guarded/G1_param_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.param_after_step"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "ddp2/guarded/G2_grad_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.grad_post_sync"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "ddp2/guarded/G3_reduction": {
+  "class_rewrite": false,
+  "extensions": [
+   "E4-multi-aggregate"
+  ],
+  "form": "aggregate",
+  "hooks": [
+   "fw.grad_post_sync",
+   "fw.grad_pre_sync"
+  ],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "ddp2/guarded/G4_completeness": {
+  "class_rewrite": false,
+  "extensions": [
+   "E5-domain-antijoin"
+  ],
+  "form": "completeness",
+  "hooks": [
+   "fw.grad_post_sync"
+  ],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "ddp2/guarded/G5_step_markers": {
+  "class_rewrite": false,
+  "extensions": [
+   "E5-domain-antijoin"
+  ],
+  "form": "completeness",
+  "hooks": [],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "ddp2/guarded/G6_hparam_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.opt_hparam"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "ddp2bf16/abl_early/G1_param_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.param_after_step"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "ddp2bf16/abl_early/G2_grad_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.grad_pre_sync"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "ddp2bf16/abl_early/G3_reduction": {
+  "class_rewrite": false,
+  "extensions": [
+   "E4-multi-aggregate"
+  ],
+  "form": "aggregate",
+  "hooks": [
+   "fw.grad_post_sync",
+   "fw.grad_pre_sync"
+  ],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "ddp2bf16/abl_early/G4_completeness": {
+  "class_rewrite": false,
+  "extensions": [
+   "E5-domain-antijoin"
+  ],
+  "form": "completeness",
+  "hooks": [
+   "fw.grad_post_sync"
+  ],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "ddp2bf16/abl_early/G5_step_markers": {
+  "class_rewrite": false,
+  "extensions": [
+   "E5-domain-antijoin"
+  ],
+  "form": "completeness",
+  "hooks": [],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "ddp2bf16/abl_early/G6_hparam_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.opt_hparam"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "ddp2bf16/guarded/G1_param_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.param_after_step"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "ddp2bf16/guarded/G2_grad_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.grad_post_sync"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "ddp2bf16/guarded/G3_reduction": {
+  "class_rewrite": false,
+  "extensions": [
+   "E4-multi-aggregate"
+  ],
+  "form": "aggregate",
+  "hooks": [
+   "fw.grad_post_sync",
+   "fw.grad_pre_sync"
+  ],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "ddp2bf16/guarded/G4_completeness": {
+  "class_rewrite": false,
+  "extensions": [
+   "E5-domain-antijoin"
+  ],
+  "form": "completeness",
+  "hooks": [
+   "fw.grad_post_sync"
+  ],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "ddp2bf16/guarded/G5_step_markers": {
+  "class_rewrite": false,
+  "extensions": [
+   "E5-domain-antijoin"
+  ],
+  "form": "completeness",
+  "hooks": [],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "ddp2bf16/guarded/G6_hparam_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.opt_hparam"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "ddp4/abl_early/G1_param_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.param_after_step"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "ddp4/abl_early/G2_grad_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.grad_pre_sync"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "ddp4/abl_early/G3_reduction": {
+  "class_rewrite": false,
+  "extensions": [
+   "E4-multi-aggregate"
+  ],
+  "form": "aggregate",
+  "hooks": [
+   "fw.grad_post_sync",
+   "fw.grad_pre_sync"
+  ],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "ddp4/abl_early/G4_completeness": {
+  "class_rewrite": false,
+  "extensions": [
+   "E5-domain-antijoin"
+  ],
+  "form": "completeness",
+  "hooks": [
+   "fw.grad_post_sync"
+  ],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "ddp4/abl_early/G5_step_markers": {
+  "class_rewrite": false,
+  "extensions": [
+   "E5-domain-antijoin"
+  ],
+  "form": "completeness",
+  "hooks": [],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "ddp4/abl_early/G6_hparam_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.opt_hparam"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "ddp4/guarded/G1_param_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.param_after_step"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "ddp4/guarded/G2_grad_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.grad_post_sync"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "ddp4/guarded/G3_reduction": {
+  "class_rewrite": false,
+  "extensions": [
+   "E4-multi-aggregate"
+  ],
+  "form": "aggregate",
+  "hooks": [
+   "fw.grad_post_sync",
+   "fw.grad_pre_sync"
+  ],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "ddp4/guarded/G4_completeness": {
+  "class_rewrite": false,
+  "extensions": [
+   "E5-domain-antijoin"
+  ],
+  "form": "completeness",
+  "hooks": [
+   "fw.grad_post_sync"
+  ],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "ddp4/guarded/G5_step_markers": {
+  "class_rewrite": false,
+  "extensions": [
+   "E5-domain-antijoin"
+  ],
+  "form": "completeness",
+  "hooks": [],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "ddp4/guarded/G6_hparam_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.opt_hparam"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "fsdp2/abl_early/G1_param_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.param_gathered"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "fsdp2/abl_early/G3_reduction": {
+  "class_rewrite": false,
+  "extensions": [
+   "E4-multi-aggregate"
+  ],
+  "form": "aggregate",
+  "hooks": [
+   "fw.grad_post_sync",
+   "fw.grad_pre_sync"
+  ],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "fsdp2/abl_early/G4_completeness": {
+  "class_rewrite": false,
+  "extensions": [
+   "E5-domain-antijoin"
+  ],
+  "form": "completeness",
+  "hooks": [
+   "fw.grad_post_sync"
+  ],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "fsdp2/abl_early/G5_step_markers": {
+  "class_rewrite": false,
+  "extensions": [
+   "E5-domain-antijoin"
+  ],
+  "form": "completeness",
+  "hooks": [],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "fsdp2/abl_early/G6_hparam_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.opt_hparam"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "fsdp2/abl_early/G7_gather_consistency": {
+  "class_rewrite": false,
+  "extensions": [
+   "E4-multi-aggregate",
+   "E6-aligned-step"
+  ],
+  "form": "aggregate_aligned",
+  "hooks": [
+   "fw.param_after_step",
+   "fw.param_gathered"
+  ],
+  "in_fragment": false,
+  "k": 1,
+  "window": 2,
+  "window_kind": "step-aligned"
+ },
+ "fsdp2/abl_rest/G3_reduction": {
+  "class_rewrite": false,
+  "extensions": [
+   "E4-multi-aggregate"
+  ],
+  "form": "aggregate",
+  "hooks": [
+   "fw.grad_post_sync",
+   "fw.grad_pre_sync"
+  ],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "fsdp2/abl_rest/G4_completeness": {
+  "class_rewrite": false,
+  "extensions": [
+   "E5-domain-antijoin"
+  ],
+  "form": "completeness",
+  "hooks": [
+   "fw.grad_post_sync"
+  ],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "fsdp2/abl_rest/G5_step_markers": {
+  "class_rewrite": false,
+  "extensions": [
+   "E5-domain-antijoin"
+  ],
+  "form": "completeness",
+  "hooks": [],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "fsdp2/abl_rest/G6_hparam_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.opt_hparam"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "fsdp2/guarded/G1_param_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.param_gathered"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "fsdp2/guarded/G3_reduction": {
+  "class_rewrite": false,
+  "extensions": [
+   "E4-multi-aggregate"
+  ],
+  "form": "aggregate",
+  "hooks": [
+   "fw.grad_post_sync",
+   "fw.grad_pre_sync"
+  ],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "fsdp2/guarded/G4_completeness": {
+  "class_rewrite": false,
+  "extensions": [
+   "E5-domain-antijoin"
+  ],
+  "form": "completeness",
+  "hooks": [
+   "fw.grad_post_sync"
+  ],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "fsdp2/guarded/G5_step_markers": {
+  "class_rewrite": false,
+  "extensions": [
+   "E5-domain-antijoin"
+  ],
+  "form": "completeness",
+  "hooks": [],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "fsdp2/guarded/G6_hparam_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.opt_hparam"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "fsdp2/guarded/G7_gather_consistency": {
+  "class_rewrite": false,
+  "extensions": [
+   "E4-multi-aggregate",
+   "E6-aligned-step"
+  ],
+  "form": "aggregate_aligned",
+  "hooks": [
+   "fw.param_after_step",
+   "fw.param_gathered"
+  ],
+  "in_fragment": false,
+  "k": 1,
+  "window": 2,
+  "window_kind": "step-aligned"
+ },
+ "fsdp2bf16/abl_early/G1_param_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.param_gathered"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "fsdp2bf16/abl_early/G3_reduction": {
+  "class_rewrite": false,
+  "extensions": [
+   "E4-multi-aggregate"
+  ],
+  "form": "aggregate",
+  "hooks": [
+   "fw.grad_post_sync",
+   "fw.grad_pre_sync"
+  ],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "fsdp2bf16/abl_early/G4_completeness": {
+  "class_rewrite": false,
+  "extensions": [
+   "E5-domain-antijoin"
+  ],
+  "form": "completeness",
+  "hooks": [
+   "fw.grad_post_sync"
+  ],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "fsdp2bf16/abl_early/G5_step_markers": {
+  "class_rewrite": false,
+  "extensions": [
+   "E5-domain-antijoin"
+  ],
+  "form": "completeness",
+  "hooks": [],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "fsdp2bf16/abl_early/G6_hparam_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.opt_hparam"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "fsdp2bf16/abl_early/G7_gather_consistency": {
+  "class_rewrite": false,
+  "extensions": [
+   "E4-multi-aggregate",
+   "E6-aligned-step"
+  ],
+  "form": "aggregate_aligned",
+  "hooks": [
+   "fw.param_after_step",
+   "fw.param_gathered"
+  ],
+  "in_fragment": false,
+  "k": 1,
+  "window": 2,
+  "window_kind": "step-aligned"
+ },
+ "fsdp2bf16/abl_rest/G3_reduction": {
+  "class_rewrite": false,
+  "extensions": [
+   "E4-multi-aggregate"
+  ],
+  "form": "aggregate",
+  "hooks": [
+   "fw.grad_post_sync",
+   "fw.grad_pre_sync"
+  ],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "fsdp2bf16/abl_rest/G4_completeness": {
+  "class_rewrite": false,
+  "extensions": [
+   "E5-domain-antijoin"
+  ],
+  "form": "completeness",
+  "hooks": [
+   "fw.grad_post_sync"
+  ],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "fsdp2bf16/abl_rest/G5_step_markers": {
+  "class_rewrite": false,
+  "extensions": [
+   "E5-domain-antijoin"
+  ],
+  "form": "completeness",
+  "hooks": [],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "fsdp2bf16/abl_rest/G6_hparam_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.opt_hparam"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "fsdp2bf16/guarded/G1_param_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.param_gathered"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "fsdp2bf16/guarded/G3_reduction": {
+  "class_rewrite": false,
+  "extensions": [
+   "E4-multi-aggregate"
+  ],
+  "form": "aggregate",
+  "hooks": [
+   "fw.grad_post_sync",
+   "fw.grad_pre_sync"
+  ],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "fsdp2bf16/guarded/G4_completeness": {
+  "class_rewrite": false,
+  "extensions": [
+   "E5-domain-antijoin"
+  ],
+  "form": "completeness",
+  "hooks": [
+   "fw.grad_post_sync"
+  ],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "fsdp2bf16/guarded/G5_step_markers": {
+  "class_rewrite": false,
+  "extensions": [
+   "E5-domain-antijoin"
+  ],
+  "form": "completeness",
+  "hooks": [],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "fsdp2bf16/guarded/G6_hparam_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.opt_hparam"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "fsdp2bf16/guarded/G7_gather_consistency": {
+  "class_rewrite": false,
+  "extensions": [
+   "E4-multi-aggregate",
+   "E6-aligned-step"
+  ],
+  "form": "aggregate_aligned",
+  "hooks": [
+   "fw.param_after_step",
+   "fw.param_gathered"
+  ],
+  "in_fragment": false,
+  "k": 1,
+  "window": 2,
+  "window_kind": "step-aligned"
+ },
+ "pp2/abl_early/G1_param_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.param_after_step"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "pp2/abl_early/G2_grad_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.grad_pre_sync"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "pp2/abl_early/G3_reduction": {
+  "class_rewrite": false,
+  "extensions": [
+   "E4-multi-aggregate"
+  ],
+  "form": "aggregate",
+  "hooks": [
+   "fw.grad_post_sync",
+   "fw.grad_pre_sync"
+  ],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "pp2/abl_early/G4_completeness": {
+  "class_rewrite": false,
+  "extensions": [
+   "E5-domain-antijoin"
+  ],
+  "form": "completeness",
+  "hooks": [
+   "fw.grad_post_sync"
+  ],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "pp2/abl_early/G5_step_markers": {
+  "class_rewrite": false,
+  "extensions": [
+   "E5-domain-antijoin"
+  ],
+  "form": "completeness",
+  "hooks": [],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "pp2/abl_early/G6_hparam_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.opt_hparam"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "pp2/guarded/G1_param_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.param_after_step"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "pp2/guarded/G2_grad_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.grad_post_sync"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "pp2/guarded/G3_reduction": {
+  "class_rewrite": false,
+  "extensions": [
+   "E4-multi-aggregate"
+  ],
+  "form": "aggregate",
+  "hooks": [
+   "fw.grad_post_sync",
+   "fw.grad_pre_sync"
+  ],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "pp2/guarded/G4_completeness": {
+  "class_rewrite": false,
+  "extensions": [
+   "E5-domain-antijoin"
+  ],
+  "form": "completeness",
+  "hooks": [
+   "fw.grad_post_sync"
+  ],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "pp2/guarded/G5_step_markers": {
+  "class_rewrite": false,
+  "extensions": [
+   "E5-domain-antijoin"
+  ],
+  "form": "completeness",
+  "hooks": [],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "pp2/guarded/G6_hparam_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.opt_hparam"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "tp2dp2/abl_dponly/G1_param_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.param_after_step"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "tp2dp2/abl_dponly/G2_grad_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.grad_post_sync"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "tp2dp2/abl_dponly/G3_reduction": {
+  "class_rewrite": false,
+  "extensions": [
+   "E4-multi-aggregate"
+  ],
+  "form": "aggregate",
+  "hooks": [
+   "fw.grad_post_sync",
+   "fw.grad_pre_sync"
+  ],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "tp2dp2/abl_dponly/G4_completeness": {
+  "class_rewrite": false,
+  "extensions": [
+   "E5-domain-antijoin"
+  ],
+  "form": "completeness",
+  "hooks": [
+   "fw.grad_post_sync"
+  ],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "tp2dp2/abl_dponly/G5_step_markers": {
+  "class_rewrite": false,
+  "extensions": [
+   "E5-domain-antijoin"
+  ],
+  "form": "completeness",
+  "hooks": [],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "tp2dp2/abl_dponly/G6_hparam_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.opt_hparam"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "tp2dp2/abl_early/G1_param_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.param_after_step"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "tp2dp2/abl_early/G2_grad_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.grad_pre_sync"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "tp2dp2/abl_early/G3_reduction": {
+  "class_rewrite": false,
+  "extensions": [
+   "E4-multi-aggregate"
+  ],
+  "form": "aggregate",
+  "hooks": [
+   "fw.grad_post_sync",
+   "fw.grad_pre_sync"
+  ],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "tp2dp2/abl_early/G4_completeness": {
+  "class_rewrite": false,
+  "extensions": [
+   "E5-domain-antijoin"
+  ],
+  "form": "completeness",
+  "hooks": [
+   "fw.grad_post_sync"
+  ],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "tp2dp2/abl_early/G5_step_markers": {
+  "class_rewrite": false,
+  "extensions": [
+   "E5-domain-antijoin"
+  ],
+  "form": "completeness",
+  "hooks": [],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "tp2dp2/abl_early/G6_hparam_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.opt_hparam"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "tp2dp2/guarded/G1_param_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.param_after_step"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "tp2dp2/guarded/G2_grad_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.grad_post_sync"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "tp2dp2/guarded/G3_reduction": {
+  "class_rewrite": false,
+  "extensions": [
+   "E4-multi-aggregate"
+  ],
+  "form": "aggregate",
+  "hooks": [
+   "fw.grad_post_sync",
+   "fw.grad_pre_sync"
+  ],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "tp2dp2/guarded/G4_completeness": {
+  "class_rewrite": false,
+  "extensions": [
+   "E5-domain-antijoin"
+  ],
+  "form": "completeness",
+  "hooks": [
+   "fw.grad_post_sync"
+  ],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "tp2dp2/guarded/G5_step_markers": {
+  "class_rewrite": false,
+  "extensions": [
+   "E5-domain-antijoin"
+  ],
+  "form": "completeness",
+  "hooks": [],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "tp2dp2/guarded/G6_hparam_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.opt_hparam"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "zero1/abl_early/G1_param_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.param_local_step"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "zero1/abl_early/G2_grad_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.grad_pre_sync"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "zero1/abl_early/G3_reduction": {
+  "class_rewrite": false,
+  "extensions": [
+   "E4-multi-aggregate"
+  ],
+  "form": "aggregate",
+  "hooks": [
+   "fw.grad_post_sync",
+   "fw.grad_pre_sync"
+  ],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "zero1/abl_early/G4_completeness": {
+  "class_rewrite": false,
+  "extensions": [
+   "E5-domain-antijoin"
+  ],
+  "form": "completeness",
+  "hooks": [
+   "fw.grad_post_sync"
+  ],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "zero1/abl_early/G5_step_markers": {
+  "class_rewrite": false,
+  "extensions": [
+   "E5-domain-antijoin"
+  ],
+  "form": "completeness",
+  "hooks": [],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "zero1/abl_early/G6_hparam_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.opt_hparam"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "zero1/abl_early/G8_owner_consistency": {
+  "class_rewrite": false,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.param_after_step",
+   "fw.param_local_step"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 2,
+  "window_kind": "step"
+ },
+ "zero1/guarded/G1_param_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.param_after_step"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "zero1/guarded/G2_grad_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.grad_post_sync"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "zero1/guarded/G3_reduction": {
+  "class_rewrite": false,
+  "extensions": [
+   "E4-multi-aggregate"
+  ],
+  "form": "aggregate",
+  "hooks": [
+   "fw.grad_post_sync",
+   "fw.grad_pre_sync"
+  ],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "zero1/guarded/G4_completeness": {
+  "class_rewrite": false,
+  "extensions": [
+   "E5-domain-antijoin"
+  ],
+  "form": "completeness",
+  "hooks": [
+   "fw.grad_post_sync"
+  ],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "zero1/guarded/G5_step_markers": {
+  "class_rewrite": false,
+  "extensions": [
+   "E5-domain-antijoin"
+  ],
+  "form": "completeness",
+  "hooks": [],
+  "in_fragment": false,
+  "k": 1,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "zero1/guarded/G6_hparam_replica": {
+  "class_rewrite": true,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.opt_hparam"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 1,
+  "window_kind": "step"
+ },
+ "zero1/guarded/G8_owner_consistency": {
+  "class_rewrite": false,
+  "extensions": [],
+  "form": "tuple",
+  "hooks": [
+   "fw.param_after_step",
+   "fw.param_local_step"
+  ],
+  "in_fragment": true,
+  "k": 2,
+  "window": 2,
+  "window_kind": "step"
+ }
+}

@@ -1,0 +1,3726 @@
+{
+  "meta": {
+    "total": 392,
+    "by_level": {
+      "L1": 23,
+      "L2": 161,
+      "L3": 72,
+      "L4": 134,
+      "WARNING": 2
+    }
+  },
+  "bugs": [
+    {
+      "bug_id": "D-001",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "D-002",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-003",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-004",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-005",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "D-006",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "D-007",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "D-008",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "D-009",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-010",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "D-012",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "D-013",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "D-016",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "D-017",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "D-018",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "D-019",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "D-020",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-022",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "D-023",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "D-024",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "D-028",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-030",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-031",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-032",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-033",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "D-034",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "D-035",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-036",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-037",
+      "evidence_level": "WARNING",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [
+        "loud_keyword_in_description"
+      ],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "D-039",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-041",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "D-042",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-043",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "D-044",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-045",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-046",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "M-001",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-002",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-003",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-004",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "M-006",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "M-007",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "M-009",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "M-011",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "M-013",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-015",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "M-016",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-017",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "M-018",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-019",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-022",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-023",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-025",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-026",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-027",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "M-028",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "M-029",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-030",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "M-031",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-032",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "M-034",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-035",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-036",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-037",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-038",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-039",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-040",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-041",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-042",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-001",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "O-004",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-007",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "O-008",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "O-011",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "O-012",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-013",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "O-015",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "O-017",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "O-018",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-019",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "O-020",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "O-024",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "O-026",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "O-027",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-028",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-029",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-030",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-031",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-032",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "O-033",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "O-034",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-035",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-036",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "O-037",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-038",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-039",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "B1",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "B10",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "B11",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "B12",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "B13",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "B14",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "B15",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "B2",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "B3",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "B4",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "B5",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "B6",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "B7",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "B8",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "B9",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "D-011",
+      "evidence_level": "L1",
+      "evidence_signals": [
+        "reproduced",
+        "expected_output_silent_keyword",
+        "fix_diff_no_raise"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-014",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "D-015",
+      "evidence_level": "L1",
+      "evidence_signals": [
+        "reproduced",
+        "expected_output_silent_keyword",
+        "fix_diff_no_raise"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-021",
+      "evidence_level": "L1",
+      "evidence_signals": [
+        "reproduced",
+        "expected_output_silent_keyword",
+        "fix_diff_no_raise"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-025",
+      "evidence_level": "L1",
+      "evidence_signals": [
+        "reproduced",
+        "expected_output_silent_keyword",
+        "fix_diff_no_raise"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-026",
+      "evidence_level": "L1",
+      "evidence_signals": [
+        "reproduced",
+        "expected_output_silent_keyword",
+        "fix_diff_no_raise"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-027",
+      "evidence_level": "L1",
+      "evidence_signals": [
+        "reproduced",
+        "expected_output_silent_keyword",
+        "fix_diff_no_raise"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-029",
+      "evidence_level": "L1",
+      "evidence_signals": [
+        "reproduced",
+        "expected_output_silent_keyword",
+        "fix_diff_no_raise"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-038",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-040",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "D-NEW-1",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "D-NEW-12",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "D-NEW-13",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "D-NEW-14",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-15",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-16",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-17",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "D-NEW-18",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "D-NEW-19",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-2",
+      "evidence_level": "L1",
+      "evidence_signals": [
+        "reproduced",
+        "expected_output_silent_keyword",
+        "fix_diff_no_raise"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-20",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-21",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-22",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-23",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-24",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-25",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-26",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-27",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-28",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-29",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-3",
+      "evidence_level": "L1",
+      "evidence_signals": [
+        "reproduced",
+        "expected_output_silent_keyword",
+        "fix_diff_no_raise"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-30",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-31",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-32",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-33",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-34",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-35",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-36",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-38",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-39",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-40",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-42",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-43",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-44",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-45",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-46",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-47",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-48",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-49",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-50",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-51",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "D-NEW-53",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-54",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-55",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-56",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "D-NEW-57",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-58",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-59",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-60",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "D-NEW-61",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-62",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-63",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "D-NEW-64",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-65",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-66",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "D-NEW-67",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-68",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-69",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-70",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-71",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-72",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-73",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-74",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-75",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "D-NEW-76",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-77",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-78",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-79",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "D-NEW-8",
+      "evidence_level": "L1",
+      "evidence_signals": [
+        "reproduced",
+        "expected_output_silent_keyword",
+        "fix_diff_no_raise"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-80",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "D-NEW-81",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "D-NEW-9",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "M-005",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-008",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-010",
+      "evidence_level": "L1",
+      "evidence_signals": [
+        "reproduced",
+        "expected_output_silent_keyword",
+        "fix_diff_no_raise"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-012",
+      "evidence_level": "L1",
+      "evidence_signals": [
+        "reproduced",
+        "expected_output_silent_keyword",
+        "fix_diff_no_raise"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-014",
+      "evidence_level": "L1",
+      "evidence_signals": [
+        "reproduced",
+        "expected_output_silent_keyword",
+        "fix_diff_no_raise"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-020",
+      "evidence_level": "L1",
+      "evidence_signals": [
+        "reproduced",
+        "expected_output_silent_keyword",
+        "fix_diff_no_raise"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-021",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "M-024",
+      "evidence_level": "L1",
+      "evidence_signals": [
+        "reproduced",
+        "expected_output_silent_keyword",
+        "fix_diff_no_raise"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-033",
+      "evidence_level": "L1",
+      "evidence_signals": [
+        "reproduced",
+        "expected_output_silent_keyword",
+        "fix_diff_no_raise"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-NEW-1",
+      "evidence_level": "L1",
+      "evidence_signals": [
+        "reproduced",
+        "expected_output_silent_keyword",
+        "fix_diff_no_raise"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-NEW-10",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "M-NEW-11",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-NEW-12",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-NEW-13",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "M-NEW-14",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "M-NEW-15",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-NEW-16",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-NEW-17",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "M-NEW-18",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-NEW-19",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "M-NEW-20",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-NEW-21",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "M-NEW-22",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-NEW-23",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-NEW-24",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "M-NEW-26",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-NEW-27",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "M-NEW-28",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-NEW-29",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-NEW-3",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-NEW-30",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-NEW-31",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-NEW-32",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-NEW-33",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-NEW-34",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-NEW-35",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-NEW-36",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "M-NEW-38",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-NEW-39",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-NEW-4",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "M-NEW-40",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "M-NEW-41",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-NEW-42",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-NEW-43",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "M-NEW-44",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "M-NEW-45",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-NEW-46",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-NEW-47",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-NEW-5",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "M-NEW-51",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "M-NEW-52",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "M-NEW-53",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-NEW-54",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-NEW-55",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "M-NEW-56",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "M-NEW-57",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-NEW-58",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-NEW-59",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "M-NEW-6",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "M-NEW-60",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "M-NEW-61",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-NEW-62",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-NEW-64",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-NEW-65",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-NEW-67",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-NEW-68",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "M-NEW-69",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "M-NEW-7",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "M-NEW-8",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "M-NEW-9",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-002",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "O-003",
+      "evidence_level": "L1",
+      "evidence_signals": [
+        "reproduced",
+        "expected_output_silent_keyword",
+        "fix_diff_no_raise"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-005",
+      "evidence_level": "L1",
+      "evidence_signals": [
+        "reproduced",
+        "expected_output_silent_keyword",
+        "fix_diff_no_raise"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-006",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "O-009",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-010",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-014",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-016",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-021",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-022",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "O-023",
+      "evidence_level": "L1",
+      "evidence_signals": [
+        "reproduced",
+        "expected_output_silent_keyword",
+        "fix_diff_no_raise"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-025",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "O-040",
+      "evidence_level": "L1",
+      "evidence_signals": [
+        "reproduced",
+        "expected_output_silent_keyword",
+        "fix_diff_no_raise"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-NEW-1",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-NEW-10",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "O-NEW-11",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-NEW-13",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "O-NEW-14",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-NEW-15",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-NEW-16",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "O-NEW-17",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-NEW-18",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-NEW-19",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "O-NEW-2",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "O-NEW-20",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "O-NEW-21",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "O-NEW-22",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-NEW-24",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-NEW-26",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-NEW-27",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-NEW-28",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-NEW-29",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-NEW-3",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "O-NEW-30",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-NEW-31",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "O-NEW-32",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-NEW-33",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-NEW-35",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-NEW-36",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-NEW-38",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-NEW-39",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-NEW-4",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-NEW-40",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-NEW-49",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-NEW-5",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "O-NEW-51",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-NEW-53",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "O-NEW-55",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-NEW-56",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-NEW-57",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-NEW-6",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-NEW-60",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-NEW-61",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "O-NEW-62",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-NEW-63",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-NEW-64",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-NEW-65",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "O-NEW-66",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "O-NEW-67",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-NEW-68",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-NEW-69",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-NEW-7",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-NEW-70",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "O-NEW-8",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "O-NEW-9",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "OC-NEW-1",
+      "evidence_level": "L1",
+      "evidence_signals": [
+        "reproduced",
+        "expected_output_silent_keyword",
+        "fix_diff_no_raise"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "OC-NEW-10",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "OC-NEW-11",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "OC-NEW-12",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "OC-NEW-13",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "OC-NEW-14",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "OC-NEW-15",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "OC-NEW-16",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "OC-NEW-17",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "OC-NEW-18",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "OC-NEW-19",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "OC-NEW-2",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "OC-NEW-20",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "OC-NEW-21",
+      "evidence_level": "WARNING",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [
+        "loud_keyword_in_description"
+      ],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "OC-NEW-22",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "OC-NEW-23",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "OC-NEW-24",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "OC-NEW-25",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "OC-NEW-26",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "OC-NEW-27",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "OC-NEW-28",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "OC-NEW-29",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "OC-NEW-3",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "OC-NEW-30",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "OC-NEW-31",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "OC-NEW-32",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "OC-NEW-33",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "OC-NEW-34",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "OC-NEW-35",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "OC-NEW-36",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "OC-NEW-38",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "OC-NEW-39",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "OC-NEW-4",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "OC-NEW-41",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "OC-NEW-42",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "OC-NEW-43",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "OC-NEW-44",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "OC-NEW-45",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "OC-NEW-46",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "OC-NEW-47",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "OC-NEW-48",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "OC-NEW-49",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "OC-NEW-5",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "OC-NEW-50",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "OC-NEW-51",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "OC-NEW-52",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "OC-NEW-53",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "OC-NEW-54",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "OC-NEW-55",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "OC-NEW-56",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "OC-NEW-58",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "OC-NEW-59",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "OC-NEW-6",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "OC-NEW-60",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "OC-NEW-61",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "OC-NEW-63",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "OC-NEW-64",
+      "evidence_level": "L3",
+      "evidence_signals": [
+        "title_silent_keyword"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "OC-NEW-65",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "OC-NEW-66",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "OC-NEW-67",
+      "evidence_level": "L2",
+      "evidence_signals": [
+        "root_cause_silent_keyword",
+        "invariant_present"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    },
+    {
+      "bug_id": "OC-NEW-7",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "OC-NEW-8",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "OC-NEW-9",
+      "evidence_level": "L4",
+      "evidence_signals": [
+        "no_clean_signal"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": true
+    },
+    {
+      "bug_id": "M-NEW-MUON-MTP",
+      "evidence_level": "L1",
+      "evidence_signals": [
+        "reproduced",
+        "expected_output_silent_keyword",
+        "fix_diff_no_raise"
+      ],
+      "warning_reasons": [],
+      "needs_manual_review": false
+    }
+  ]
+}

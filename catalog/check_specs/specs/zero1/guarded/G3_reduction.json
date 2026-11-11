@@ -1,0 +1,316 @@
+{
+ "aggregates": {
+  "numel": {
+   "arg": {
+    "attr": "t.numel"
+   },
+   "filter": null,
+   "fn": "max"
+  },
+  "post_l2max": {
+   "arg": {
+    "attr": "t.l2"
+   },
+   "filter": {
+    "args": [
+     {
+      "attr": "t.hook"
+     },
+     {
+      "str": "fw.grad_post_sync"
+     }
+    ],
+    "op": "eq"
+   },
+   "fn": "max"
+  },
+  "post_max": {
+   "arg": {
+    "attr": "t.sum"
+   },
+   "filter": {
+    "args": [
+     {
+      "attr": "t.hook"
+     },
+     {
+      "str": "fw.grad_post_sync"
+     }
+    ],
+    "op": "eq"
+   },
+   "fn": "max"
+  },
+  "post_min": {
+   "arg": {
+    "attr": "t.sum"
+   },
+   "filter": {
+    "args": [
+     {
+      "attr": "t.hook"
+     },
+     {
+      "str": "fw.grad_post_sync"
+     }
+    ],
+    "op": "eq"
+   },
+   "fn": "min"
+  },
+  "pre_l2": {
+   "arg": {
+    "attr": "t.l2"
+   },
+   "filter": {
+    "args": [
+     {
+      "attr": "t.hook"
+     },
+     {
+      "str": "fw.grad_pre_sync"
+     }
+    ],
+    "op": "eq"
+   },
+   "fn": "sum"
+  },
+  "pre_n": {
+   "arg": null,
+   "filter": {
+    "args": [
+     {
+      "attr": "t.hook"
+     },
+     {
+      "str": "fw.grad_pre_sync"
+     }
+    ],
+    "op": "eq"
+   },
+   "fn": "count"
+  },
+  "pre_sum": {
+   "arg": {
+    "attr": "t.sum"
+   },
+   "filter": {
+    "args": [
+     {
+      "attr": "t.hook"
+     },
+     {
+      "str": "fw.grad_pre_sync"
+     }
+    ],
+    "op": "eq"
+   },
+   "fn": "sum"
+  },
+  "scale": {
+   "arg": {
+    "attr": "t.red_scale"
+   },
+   "filter": {
+    "args": [
+     {
+      "attr": "t.hook"
+     },
+     {
+      "str": "fw.grad_post_sync"
+     }
+    ],
+    "op": "eq"
+   },
+   "fn": "max"
+  }
+ },
+ "evidence": {
+  "hook_in_witness": false,
+  "mode": "guarded",
+  "report_hook": "fw.grad_post_sync",
+  "tolerance": 1e-05,
+  "window": 1
+ },
+ "extensions": [
+  "E4-multi-aggregate"
+ ],
+ "form": "aggregate",
+ "group_by": [
+  "t.step",
+  "t.rkey",
+  "t.slice",
+  "t.red_grp"
+ ],
+ "id": "G3_reduction",
+ "notes": "Reduction consistency [guarded]: per ['t.step', 't.rkey', 't.slice', 't.red_grp'], every fw.grad_post_sync sum equals red_scale x the sum of the fw.grad_pre_sync sums within 1e-05 x sqrt(numel) x red_scale x sum(l2_pre), and l2_post <= (1+1e-05) x red_scale x sum(l2_pre). Groups without a fw.grad_post_sync row or without pre rows are not violations (completeness covers missing rows).",
+ "phase": {
+  "hooks": {
+   "t": [
+    "fw.grad_pre_sync",
+    "fw.grad_post_sync"
+   ]
+  }
+ },
+ "profile": "layout_v3",
+ "theta": {
+  "args": [
+   {
+    "args": [
+     {
+      "args": [
+       {
+        "args": [
+         {
+          "agg": "post_max"
+         },
+         {
+          "args": [
+           {
+            "agg": "scale"
+           },
+           {
+            "agg": "pre_sum"
+           }
+          ],
+          "op": "mul"
+         }
+        ],
+        "op": "sub"
+       }
+      ],
+      "fn": "abs"
+     },
+     {
+      "args": [
+       1e-05,
+       {
+        "args": [
+         {
+          "args": [
+           {
+            "agg": "numel"
+           }
+          ],
+          "fn": "sqrt"
+         },
+         {
+          "args": [
+           {
+            "agg": "scale"
+           },
+           {
+            "agg": "pre_l2"
+           }
+          ],
+          "op": "mul"
+         }
+        ],
+        "op": "mul"
+       }
+      ],
+      "op": "mul"
+     }
+    ],
+    "op": "le"
+   },
+   {
+    "args": [
+     {
+      "args": [
+       {
+        "args": [
+         {
+          "agg": "post_min"
+         },
+         {
+          "args": [
+           {
+            "agg": "scale"
+           },
+           {
+            "agg": "pre_sum"
+           }
+          ],
+          "op": "mul"
+         }
+        ],
+        "op": "sub"
+       }
+      ],
+      "fn": "abs"
+     },
+     {
+      "args": [
+       1e-05,
+       {
+        "args": [
+         {
+          "args": [
+           {
+            "agg": "numel"
+           }
+          ],
+          "fn": "sqrt"
+         },
+         {
+          "args": [
+           {
+            "agg": "scale"
+           },
+           {
+            "agg": "pre_l2"
+           }
+          ],
+          "op": "mul"
+         }
+        ],
+        "op": "mul"
+       }
+      ],
+      "op": "mul"
+     }
+    ],
+    "op": "le"
+   },
+   {
+    "args": [
+     {
+      "agg": "post_l2max"
+     },
+     {
+      "args": [
+       1.00001,
+       {
+        "args": [
+         {
+          "agg": "scale"
+         },
+         {
+          "agg": "pre_l2"
+         }
+        ],
+        "op": "mul"
+       }
+      ],
+      "op": "mul"
+     }
+    ],
+    "op": "le"
+   }
+  ],
+  "op": "and"
+ },
+ "vars": [
+  {
+   "name": "t",
+   "rel": "State"
+  }
+ ],
+ "witness": [
+  "t.step",
+  "t.rkey",
+  "t.slice",
+  "t.red_grp"
+ ]
+}

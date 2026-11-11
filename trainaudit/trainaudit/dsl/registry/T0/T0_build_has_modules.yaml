@@ -1,0 +1,19 @@
+id: T0-build-has-modules
+template: STRUCTURAL_PRESENCE
+family: F4
+min_tier: T0_PYTORCH
+description: >
+  Build snapshot must report at least one nn.Module and at least one
+  parameter. Catches gross layer-count bugs (M-020-style).
+evidence_bugs:
+  - M-020
+scope:
+  hookpoint: build.snapshot
+  payload_path: $.model
+bound:
+  kind: bound
+  field:
+    - n_parameters
+    - n_modules
+  op: ">"
+  value: 0

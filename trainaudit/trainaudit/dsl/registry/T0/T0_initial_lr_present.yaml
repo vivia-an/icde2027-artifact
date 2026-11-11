@@ -1,0 +1,20 @@
+id: T0-initial-lr-present
+template: CONDITIONAL_CHECK
+family: F4
+min_tier: T0_PYTORCH
+description: >
+  Whenever an LRScheduler is constructed with last_epoch != -1, every
+  optimizer param_group must contain 'initial_lr'.
+evidence_bugs:
+  - B12
+  - O-016
+scope:
+  hookpoint: scheduler.init
+  payload_path: $.param_groups[*]
+precondition:
+  # parent_payload last_epoch != -1 (resume case)
+  expr: "json_extract(payload, '$.last_epoch') != to_json(-1)"
+bound:
+  kind: equality
+  field: has_initial_lr
+  value: true

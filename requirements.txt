@@ -1,0 +1,12 @@
+# detect/score_guarded.py
+duckdb
+
+# detect/launch_megatron.py
+torch
+
+# detect/rule_tree
+pydantic
+pyyaml
+pandas
+
+# mining/run_miner.py also needs ag2 and DEEPSEEK_API_KEY

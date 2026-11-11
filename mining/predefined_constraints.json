@@ -1,0 +1,1095 @@
+{
+  "constraints": {
+    "data_parallel": {
+      "DP参数跨rank一致性检查": {
+        "name": "优化器更新后DP参数跨rank一致性检查",
+        "description": "优化器更新后,同一参数矩阵在不同DP rank间的权重和梯度校验是一致的",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-after-optimizer-step'"
+        }
+      },
+      "反向传播梯度一致性检查": {
+        "name": "反向传播阶段梯度跨并行组一致性检查",
+        "description": "检查main-grad-in-backward阶段同一参数矩阵在不同并行策略组(dp,tp)之间的grad_cksum一致性，确保反向传播过程中梯度的数据一致性",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {
+          "min_step": 1
+        },
+        "applicable_conditions": {
+          "stage": "= 'main-grad-in-backward'",
+          "parallel_groups": "> 1"
+        }
+      },
+      "shared_experts权重一致性检查": {
+        "name": "shared_experts权重一致性检查",
+        "description": "在model-after-backward阶段，检查shared_experts权重在DP通信组间的一致性。具体来说shared_experts权重在只有dp不同的通信组间，cksum的值应该是相等的。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "stage": "= 'model-after-backward'",
+          "tp": "> 1"
+        }
+      },
+      "DP requires_grad一致性检查": {
+        "name": "DP requires_grad一致性检查",
+        "description": "同一步、同一stage、同名参数在不同dp_rank上requires_grad应完全一致。用于发现某些rank未正确设置requires_grad导致的训练不一致问题。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1"
+        }
+      },
+      "optimizer前DP参数shape一致性检查": {
+        "name": "model-before-optimizer-step阶段DP参数shape一致性检查",
+        "description": "在model-before-optimizer-step阶段，检查所有data parallel组内参数的shape一致性。若发现shape不一致，表明存在模型结构异常或外部注入错误，训练将因all-reduce通信失败而终止。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-before-optimizer-step'"
+        }
+      },
+      "backward后DP参数dtype一致性检查": {
+        "name": "model-after-backward阶段DP参数dtype一致性检查",
+        "description": "在model-after-backward阶段，检查所有data parallel组内requires_grad=true的参数的dtype一致性（如float16/float32/bfloat16）。若发现DP组内参数dtype不一致，表明存在混合精度异常、手动cast或同步错误，可能导致NCCL报错或silent error。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-after-backward'"
+        }
+      },
+      "backward后DP optimizer_state一致性检查": {
+        "name": "model-after-backward阶段DP optimizer_state一致性检查",
+        "description": "在model-after-backward阶段，检查所有数据并行（DP）组内optimizer_state（如momentum、variance等优化器内部状态）的一致性。若发现不一致，表明存在同步异常或外部注入错误，可能导致训练不可恢复。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-after-backward'"
+        }
+      },
+      "backward前DP参数cksum一致性检查": {
+        "name": "model-before-backward阶段DP参数cksum一致性检查",
+        "description": "在model-before-backward阶段，检查所有data parallel组内参数的cksum一致性。若发现不一致，表明存在同步异常或自定义hook导致的silent corruption，可提前定位DP参数污染问题。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-before-backward'"
+        }
+      },
+      "backward后DP主梯度cksum一致性检查": {
+        "name": "model-after-backward阶段DP主梯度cksum一致性检查",
+        "description": "在model-after-backward阶段，检查所有data parallel组内参数的main_grad（主梯度）cksum一致性。若发现main_grad存在且其cksum在不同DP rank间不一致，表明存在同步异常或外部注入错误。该约束仅在dp>1且main_grad存在时生效。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-after-backward'"
+        }
+      },
+      "backward前DP参数requires_grad一致性检查": {
+        "name": "model-before-backward阶段DP参数requires_grad一致性检查",
+        "description": "在model-before-backward阶段，检查所有data parallel组内参数的requires_grad属性一致性。若发现不一致，表明存在同步异常或外部注入错误，需立即报错并中止训练。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-before-backward'"
+        }
+      },
+      "optimizer-step后DP optimizer_state_dict一致性检查": {
+        "name": "model-after-optimizer-step阶段DP optimizer_state_dict一致性检查",
+        "description": "在model-after-optimizer-step阶段，检查所有data parallel组内optimizer_state_dict（如Adam动量、二阶矩等）的完全一致性。若发现不一致，表明DP组间优化器状态未同步，可能导致训练不可复现或参数分歧。该约束仅适用于data_parallel_size大于1且采用带状态优化器（如Adam、LAMB）场景。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-after-optimizer-step'",
+          "optimizer_state_type": "IN ('Adam', 'LAMB', '带状态优化器')"
+        }
+      },
+      "backward后DP参数requires_grad一致性检查": {
+        "name": "model-after-backward阶段DP参数requires_grad一致性检查",
+        "description": "在model-after-backward阶段，检查所有DP组内参数的requires_grad属性一致性。若发现某参数在不同DP rank间requires_grad状态不一致，表明存在同步异常或外部注入错误，可能导致梯度同步异常、optimizer.step()失败或模型发散。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-after-backward'"
+        }
+      },
+      "backward前DP optimizer_state_dict一致性检查": {
+        "name": "model-before-backward阶段DP optimizer_state_dict一致性检查",
+        "description": "在model-before-backward阶段，检查所有data parallel组内requires_grad=True参数的optimizer_state_dict（包括动量、方差等全部优化器内部状态）一致性。若发现不一致，表明存在参数污染或同步异常。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-before-backward'"
+        }
+      },
+      "optimizer状态shape/dtype一致性检查": {
+        "name": "model-before-optimizer-step阶段DP optimizer_state_dict内部状态shape/dtype一致性检查",
+        "description": "在model-before-optimizer-step阶段，检查所有data parallel组内optimizer_state_dict内部各状态（如momentum、variance等）的shape和dtype一致性。若发现不一致，训练应立即报错，防止DP组间同步异常或隐蔽错误。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-before-optimizer-step'"
+        }
+      },
+      "backward后DP参数grad存在性一致性检查": {
+        "name": "model-after-backward阶段DP参数grad存在性一致性检查",
+        "description": "在model-after-backward阶段，检查所有data parallel组内requires_grad=true的参数，其grad属性的存在性（即grad为None或非None）在所有DP rank上必须完全一致。若部分rank grad为None，部分为非None，将导致silent failure或同步错误。若全部为None，属于正常行为（如frozen参数），不违反约束。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-after-backward'"
+        }
+      },
+      "backward后DP参数分布统计一致性检查": {
+        "name": "model-after-backward阶段DP参数分布统计（均值/方差）一致性检查",
+        "description": "在model-after-backward阶段，检查所有data parallel组内requires_grad=true的权重参数的均值（mean）和方差（variance）在各DP rank间是否一致。采用torch.allclose等近似比较方法（如atol=1e-6, rtol=1e-5）容忍浮点误差。若发现超出容忍阈值的不一致，表明存在参数分布异常或同步故障，可检测cksum无法发现的微小/模式化污染。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {
+          "statistic_type": [
+            "mean",
+            "variance"
+          ],
+          "atol": 1e-06,
+          "rtol": 1e-05
+        },
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-after-backward'"
+        }
+      },
+      "optimizer前DP参数requires_grad一致性检查": {
+        "name": "model-before-optimizer-step阶段DP参数requires_grad一致性检查",
+        "description": "在model-before-optimizer-step阶段，检查所有数据并行（DP）组内参数的requires_grad属性一致性。若发现某参数在不同DP rank上的requires_grad状态不一致，表明存在分布式训练异常，可能导致梯度计算和参数更新异常。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-before-optimizer-step'"
+        }
+      },
+      "model-before-backward阶段DP optimizer_state_dict全量一致性检查": {
+        "name": "model-before-backward阶段DP optimizer_state_dict全量一致性检查",
+        "description": "在model-before-backward阶段，检查所有数据并行（DP）组内的optimizer_state_dict（包括动量、方差、稀疏参数等所有内部状态）必须完全一致。若发现任一rank的optimizer_state_dict与组内其他rank不一致，表明存在同步异常或外部注入错误，需立即告警。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-before-backward'"
+        }
+      },
+      "backward后DP optimizer_state_dict全量一致性检查": {
+        "name": "model-after-backward阶段DP optimizer_state_dict全量一致性检查",
+        "description": "在model-after-backward阶段，检查所有data parallel组内optimizer_state_dict（包括动量、二阶矩等所有内部状态）的全量字节级别一致性。若发现不一致，表明存在同步异常或外部注入错误，可能导致训练崩溃或精度损失。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-after-backward'"
+        }
+      },
+      "backward后DP参数分布极值分位数一致性检查": {
+        "name": "model-after-backward阶段DP参数分布极值/分位数一致性检查",
+        "description": "在model-after-backward阶段，检查所有data parallel组内requires_grad=true且为浮点类型参数的分布极值（min/max）和分位数（如25%、50%、75%分位）在DP rank间的一致性。该约束用于检测极端单点异常或silent corruption。主流场景下极值/分位数统计能有效检测DP异常，但极端对称/对抗注入可能漏检，建议补充直方图分布一致性检测。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {
+          "stat_checks": [
+            "min",
+            "max",
+            "quantile_25",
+            "quantile_50",
+            "quantile_75"
+          ]
+        },
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-after-backward'",
+          "requires_grad": "= true",
+          "dtype": "IN ('float32', 'float16')"
+        }
+      },
+      "model-before-optimizer-step阶段DP参数requires_grad一致性检查": {
+        "name": "model-before-optimizer-step阶段DP参数requires_grad一致性检查",
+        "description": "在model-before-optimizer-step阶段，检查所有data parallel组内参数的requires_grad属性一致性。若发现不一致，表明存在同步异常或外部注入错误，可能导致训练行为不可复现。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-before-optimizer-step'"
+        }
+      },
+      "DP分片参数backward后分片互异性检查": {
+        "name": "model-after-backward阶段DP分片参数分片互异性检查",
+        "description": "在model-after-backward阶段，检查所有数据并行（DP）rank的分片参数（如embedding、专家参数）在不同DP rank间内容互异。若发现任意两个rank分片内容相同，则表明存在分片污染未被同步或实现异常。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-after-backward'",
+          "param_sharded": "= true",
+          "param_full_replica": "= false"
+        }
+      },
+      "optimizer前DP optimizer_state_dict lr一致性检查": {
+        "name": "model-before-optimizer-step阶段DP optimizer_state_dict lr一致性检查",
+        "description": "在model-before-optimizer-step阶段，检查所有data parallel组内optimizer_state_dict['lr']字段的一致性。若发现任一DP rank的lr字段与其他rank不同，则判定为训练异常，提示用户同步learning rate。该约束可通过在T3后向部分DP rank注入不同lr值，在T6阶段检测捕捉异常。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-before-optimizer-step'"
+        }
+      },
+      "backward后DP参数高阶统计量一致性检查": {
+        "name": "model-after-backward阶段DP参数高阶统计量一致性检查",
+        "description": "在model-after-backward阶段，检查所有data parallel组内requires_grad=True权重参数的分布高阶统计量（偏度skewness、峰度kurtosis）一致性。若发现高阶统计量不一致，表明存在分布异常或注入攻击，建议人工排查。该约束补充了均值/方差/极值/分位数一致性检测的盲区。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {
+          "statistic_type": [
+            "skewness",
+            "kurtosis"
+          ]
+        },
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-after-backward'"
+        }
+      },
+      "backward后DP参数requires_grad属性一致性检查": {
+        "name": "model-after-backward阶段DP参数requires_grad属性一致性检查",
+        "description": "在model-after-backward阶段，检查所有Data Parallel (DP)组内参数的requires_grad属性是否一致。若发现同一参数在不同DP rank上的requires_grad状态不一致，表明存在实现异常或注入攻击，可能导致训练行为不一致或参数未被正确优化。该约束可通过T3注入后在T4检测点验证。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-after-backward'"
+        }
+      },
+      "DP参数分布形态一致性检查": {
+        "name": "model-after-backward及相关阶段DP参数分布形态一致性检查",
+        "description": "在model-after-backward、model-before-optimizer-step、model-after-optimizer-step阶段，检查所有data parallel组内requires_grad=True权重参数的分布直方图、熵、偏度、峰度等分布形态统计量的一致性。若发现分布形态不一致，即使均值、cksum、方差等低阶统计量一致，也表明存在隐蔽的参数污染或注入异常，需立即排查。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {
+          "metrics": [
+            "histogram",
+            "entropy",
+            "skewness",
+            "kurtosis"
+          ]
+        },
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "IN ('model-after-backward', 'model-before-optimizer-step', 'model-after-optimizer-step')"
+        }
+      },
+      "optimizer后DP参数分布统计一致性检查": {
+        "name": "model-after-optimizer-step阶段DP参数分布统计量一致性检查",
+        "description": "在model-after-optimizer-step阶段，检查所有data parallel组内requires_grad=True参数的分布统计量（如均值、方差、分位数等）在各DP rank间的一致性。若检测到这些统计量存在显著差异，则判定为DP参数同步异常或被注入污染。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-after-optimizer-step'"
+        }
+      },
+      "optimizer前DP参数分布形态一致性检查": {
+        "name": "model-before-optimizer-step阶段DP参数分布形态一致性检查",
+        "description": "在model-before-optimizer-step阶段，检查所有数据并行（DP）组内requires_grad参数的分布形态（如直方图、偏度、峰度等高阶统计量）一致性。若任一参数在DP组内出现分布形态不一致（即使均值/方差一致），应视为同步异常或silent error，需立即报错。该约束可有效检测T3注入导致的DP rank参数分布异常，且与现有cksum/均值/方差等低阶统计量一致性约束不等价。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-before-optimizer-step'"
+        }
+      },
+      "optimizer前DP optimizer_state_dict bitwise一致性检查": {
+        "name": "model-before-optimizer-step阶段DP optimizer_state_dict bitwise一致性检查",
+        "description": "在model-before-optimizer-step阶段，检查所有data parallel组内各DP rank的optimizer_state_dict（包括所有内部状态如动量、方差、学习率等）的bitwise一致性。任何微小的数值差异（包括浮点误差）都应被视为异常。该约束可通过在T3注入单个DP rank参数异常，在T6阶段检测optimizer_state_dict bitwise一致性来验证。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-before-optimizer-step'"
+        }
+      },
+      "model-before-optimizer-step阶段DP参数requires_grad属性一致性检查": {
+        "name": "model-before-optimizer-step阶段DP参数requires_grad属性一致性检查",
+        "description": "在model-before-optimizer-step阶段，检查所有data parallel组内训练参数（requires_grad=True）的requires_grad属性一致性。若发现同名参数在不同DP rank上的requires_grad属性不一致，表明存在同步异常或外部注入错误。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-before-optimizer-step'"
+        }
+      },
+      "optimizer前DP参数bitwise一致性检查": {
+        "name": "model-before-optimizer-step阶段DP参数bitwise-level一致性检查",
+        "description": "在model-before-optimizer-step阶段，检查所有data parallel组内requires_grad=true且dtype为float32/float16/bfloat16的参数的bitwise-level一致性。若发现任一参数在不同DP rank间bitwise表示不一致，表明存在极端精度损坏、NaN/Inf或存储异常，可能导致silent corruption，需立即中断训练并排查异常。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-before-optimizer-step'"
+        }
+      },
+      "optimizer前DP参数bitwise-level一致性检查": {
+        "name": "model-before-optimizer-step阶段DP参数bitwise-level一致性检查",
+        "description": "在model-before-optimizer-step阶段，检查所有data parallel组内requires_grad=True且为浮点类型参数的bitwise-level一致性。若发现任意bit级差异（包括NaN、Inf、极小bit-flip），表明存在同步异常或外部注入错误。该约束能100%检测所有DP参数的极细微异常，补足cksum/统计量检测盲区。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-before-optimizer-step'"
+        },
+        "token_consumption": {
+          "prompt_tokens": 198704,
+          "completion_tokens": 7167,
+          "total_tokens": 205871,
+          "call_count": 5,
+          "model": "gpt-4.1-2025-04-14",
+          "generated_at": "2025-11-26T08:59:17.108181",
+          "iteration": 3,
+          "extraction_method": "agent_clients",
+          "updated_at": "2025-11-26T08:59:17.110228"
+        }
+      },
+      "model-before-optimizer-step阶段DP分片参数bitwise-level互异性检查": {
+        "name": "model-before-optimizer-step阶段DP分片参数bitwise-level互异性检查",
+        "description": "在model-before-optimizer-step阶段，检查所有data parallel组内embedding/position embedding等分片参数在不同DP rank上的bitwise-level差异性。若发现任意两组分片内容完全一致，则视为同步异常或污染。该约束可有效检测注入或误同步导致的分片参数异常。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-before-optimizer-step'"
+        }
+      },
+      "backward后DP参数高阶统计量容忍性一致性检查": {
+        "name": "model-after-backward阶段DP参数高阶统计量容忍性一致性检查",
+        "description": "在model-after-backward阶段，检查所有data parallel组内requires_grad=True参数的高阶统计量（skewness、kurtosis）在合理容忍阈值内的一致性。若发现高阶统计量超出容忍范围的不一致，表明存在同步异常或外部注入错误。该约束允许微小数值差异，主要用于debug和异常检测。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {
+          "tolerance": 1e-06
+        },
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-after-backward'"
+        }
+      },
+      "optimizer前DP optimizer_state_dict嵌套bitwise-level一致性检查": {
+        "name": "model-before-optimizer-step阶段DP optimizer_state_dict嵌套bitwise-level一致性检查",
+        "description": "在model-before-optimizer-step阶段，检查所有data parallel组内optimizer_state_dict（包括所有嵌套状态，如动量、二阶矩、学习率等）的bitwise-level一致性。生产环境可容忍极小浮点误差（如1e-7量级），bitwise-level校验建议仅在debug/排查同步异常时启用。若发现DP组内optimizer_state_dict存在bitwise-level不一致，表明存在同步异常或外部干预。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-before-optimizer-step'"
+        }
+      },
+      "optimizer前DP参数高阶统计量一致性检查": {
+        "name": "model-before-optimizer-step阶段DP参数高阶统计量一致性检查",
+        "description": "在model-before-optimizer-step阶段，检查所有data parallel组内参数的高阶统计量（如skewness、kurtosis）一致性。若发现不一致，表明存在同步异常或单rank注入导致的分布形态异常。该约束补充了仅在after-backward阶段的高阶统计量一致性检查，提升对注入异常的检测覆盖。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-before-optimizer-step'"
+        }
+      },
+      "optimizer前DP optimizer_state_dict bitwise-level一致性检查": {
+        "name": "model-before-optimizer-step阶段DP optimizer_state_dict bitwise-level一致性检查",
+        "description": "在model-before-optimizer-step阶段，检查所有data parallel组内optimizer_state_dict（包括所有嵌套状态、动量、二阶矩、嵌套结构等）的bitwise-level一致性。若发现任一DP rank的optimizer_state_dict存在bitwise-level差异，表明存在同步异常或注入攻击，可能导致训练不可复现或收敛异常。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-before-optimizer-step'"
+        }
+      },
+      "model-before-optimizer-step阶段DP参数bitwise-level一致性检查": {
+        "name": "model-before-optimizer-step阶段DP参数bitwise-level一致性检查",
+        "description": "在model-before-optimizer-step阶段，检查所有data parallel组内参数的bitwise-level一致性。通过逐位比对所有DP rank的模型参数，确保不存在任何bit-flip、注入或极小污染。若发现不一致，表明存在同步异常或外部注入错误，可能导致silent corruption或训练不可复现。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-before-optimizer-step'"
+        },
+        "token_consumption": {
+          "prompt_tokens": 199697,
+          "completion_tokens": 7126,
+          "total_tokens": 206823,
+          "call_count": 5,
+          "model": "gpt-4.1-2025-04-14",
+          "generated_at": "2025-11-26T08:56:26.649963",
+          "iteration": 2,
+          "extraction_method": "agent_clients",
+          "updated_at": "2025-11-26T08:56:26.654930"
+        }
+      },
+      "model-before-optimizer-step阶段DP参数高阶统计量一致性检查（容忍阈值/屏蔽机制）": {
+        "name": "model-before-optimizer-step阶段DP参数高阶统计量一致性检查（容忍阈值/屏蔽机制）",
+        "description": "在model-before-optimizer-step阶段，检查所有data parallel组内requires_grad=true参数的分布高阶统计量（如偏度、峰度）在容忍阈值范围内的一致性。对于稀疏参数或极端小batch导致高阶统计量自然波动较大的情况，允许通过阈值或屏蔽机制排除不稳定参数，以避免误报。该约束能有效检测单rank注入导致的分布异常，提升DP一致性检测的鲁棒性。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {
+          "stats": [
+            "skew",
+            "kurt"
+          ],
+          "tolerance": 0.0001,
+          "mask_unstable": true
+        },
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-before-optimizer-step'"
+        }
+      },
+      "backward后DP分片参数bitwise互异性检查": {
+        "name": "model-after-backward阶段DP分片参数bitwise互异性检查",
+        "description": "在model-after-backward阶段，检查所有数据并行组（DP组）内被标记为expert/embedding分片的参数（is_expert_param(param)或embedding_sharded(param)）在bitwise-level上必须互异，不能完全一致。若发现DP组内分片参数bitwise-level一致，表明存在同步异常或分片污染。该约束用于检测分片参数在DP组内未被错误同步或未被污染。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-after-backward'"
+        }
+      },
+      "optimizer前DP optimizer_state_dict.lr一致性检查": {
+        "name": "model-before-optimizer-step阶段DP optimizer_state_dict.lr一致性检查",
+        "description": "在model-before-optimizer-step阶段，检查所有data parallel组内optimizer_state_dict的lr字段一致性。若发现不一致，表明存在同步异常或外部注入错误，可能导致训练分歧或不稳定。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-before-optimizer-step'"
+        }
+      },
+      "model-before-optimizer-step阶段DP参数高阶统计量一致性检查": {
+        "name": "model-before-optimizer-step阶段DP参数高阶统计量一致性检查",
+        "description": "在model-before-optimizer-step阶段，检查所有data parallel组内requires_grad=true的权重参数的分布高阶统计量（如skewness、kurtosis）在DP rank间的一致性。若高阶统计量在容忍阈值（如1e-6）内不一致，则判定为DP不一致异常，提示silent corruption或注入污染。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {
+          "tolerance": 1e-06
+        },
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-before-optimizer-step'"
+        }
+      },
+      "optimizer前DP optimizer_state_dict嵌套状态bitwise-level一致性检查": {
+        "name": "model-before-optimizer-step阶段DP optimizer_state_dict嵌套状态bitwise-level一致性检查",
+        "description": "在model-before-optimizer-step阶段，检查所有data parallel组内各rank的optimizer_state_dict及其所有嵌套内部状态（如动量、二阶矩、调度器等）的bitwise-level一致性。若发现任意bitwise-level差异，表明存在同步异常或外部注入错误，需立即排查。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-before-optimizer-step'"
+        }
+      },
+      "optimizer前DP optimizer_state_dict全量bitwise一致性检查": {
+        "name": "model-before-optimizer-step阶段DP optimizer_state_dict全量bitwise一致性检查",
+        "description": "在model-before-optimizer-step阶段，检查所有data parallel组内optimizer_state_dict（包括所有嵌套字段、动量、二阶矩、学习率等）的bitwise-level一致性。若发现不一致，表明存在同步异常或注入导致的深层优化器状态损坏，最终会导致训练不可逆错误。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-before-optimizer-step'"
+        }
+      },
+      "optimizer前DP optimizer_state_dict核心嵌套状态bitwise-level一致性检查": {
+        "name": "model-before-optimizer-step阶段DP optimizer_state_dict核心嵌套状态bitwise-level一致性检查",
+        "description": "在model-before-optimizer-step阶段，检查所有data parallel组内optimizer_state_dict的核心嵌套状态（如动量、二阶矩、嵌套结构）的bitwise-level一致性。允许极小数值误差和无害自定义buffer差异，聚焦于影响训练正确性的核心状态。若发现核心嵌套状态存在异常bitwise-level不一致，表明存在同步异常或注入攻击。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-before-optimizer-step'"
+        }
+      },
+      "backward后DP参数bitwise-level一致性检查": {
+        "name": "model-after-backward阶段DP参数bitwise-level一致性检查",
+        "description": "在model-after-backward阶段，检查所有数据并行（DP）组内所有参数的bitwise-level（二进制逐位）一致性。若任一参数在任意DP rank间bitwise-level不一致，则判定为数据并行一致性异常，可检测到如bit-flip、精度混用、silent corruption等异常。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-after-backward'"
+        }
+      },
+      "model-before-optimizer-step阶段DP全量参数requires_grad一致性检查": {
+        "name": "model-before-optimizer-step阶段DP全量参数requires_grad一致性检查",
+        "description": "在model-before-optimizer-step阶段，检查所有数据并行（DP）rank的所有参数（包括权重、偏置、嵌入等）的requires_grad属性是否一致。若发现不一致，表明存在同步异常或外部注入错误，可能导致梯度同步异常或优化器状态损坏。该约束可通过在T3后注入requires_grad属性篡改进行验证。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-before-optimizer-step'"
+        }
+      },
+      "optimizer_state_dict嵌套状态bitwise-level一致性检查": {
+        "name": "model-before-backward阶段DP optimizer_state_dict嵌套状态bitwise-level一致性检查",
+        "description": "在model-before-backward阶段，检查所有数据并行（DP）rank的optimizer_state_dict中所有嵌套状态（如momentum、variance、step等）的bitwise-level一致性。若发现任一嵌套状态在DP组内存在bitwise-level差异，表明存在同步异常或silent corruption，需立即报错。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-before-backward'"
+        }
+      },
+      "backward后DP optimizer_state_dict bitwise-level一致性检查": {
+        "name": "model-after-backward阶段DP optimizer_state_dict bitwise-level一致性检查",
+        "description": "在model-after-backward阶段，检查所有data parallel组内optimizer_state_dict（包括所有嵌套状态、动量、二阶矩、调度器等）的bitwise-level一致性。若发现任意字段存在bitwise差异（即使仅为浮点微小差异），表明存在同步异常或外部注入错误，训练将不可复现或失败。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-after-backward'"
+        }
+      },
+      "optimizer前DP optimizer_state_dict['step']一致性检查": {
+        "name": "model-before-optimizer-step阶段DP optimizer_state_dict['step']一致性检查",
+        "description": "在model-before-optimizer-step阶段，检查所有data parallel组内optimizer_state_dict['step']字段的bitwise-level一致性。若发现不一致，表明训练步数已漂移，可能导致silent divergence或训练崩溃。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-before-optimizer-step'"
+        }
+      },
+      "optimizer前DP参数分布高阶统计量一致性检查": {
+        "name": "model-before-optimizer-step阶段DP参数分布高阶统计量一致性检查",
+        "description": "在model-before-optimizer-step阶段，检查所有data parallel组内requires_grad=True参数的分布高阶统计量（skewness、kurtosis）一致性。若发现DP组内高阶统计量不一致，表明存在参数分布异常或注入攻击，需进一步排查。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-before-optimizer-step'"
+        }
+      },
+      "backward后DP全参数requires_grad一致性检查": {
+        "name": "model-after-backward阶段DP全参数requires_grad一致性检查",
+        "description": "在model-after-backward阶段，检查所有data parallel组内参数的requires_grad属性一致性。若发现任一参数在DP rank间requires_grad不一致，表明存在同步异常或外部注入错误，需立即报错或记录异常。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-after-backward'"
+        }
+      },
+      "DP参数高阶统计量一致性检查": {
+        "name": "model-before-optimizer-step阶段DP参数高阶统计量一致性检查",
+        "description": "在model-before-optimizer-step阶段，检查所有data parallel组内requires_grad=True且非特殊共享参数的权重，其分布高阶统计量（skewness、kurtosis）在DP rank间的一致性。若发现不一致，表明存在注入导致的分布异常，建议记录异常日志并关注模型训练风险。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {
+          "statistic_type": [
+            "skewness",
+            "kurtosis"
+          ]
+        },
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-before-optimizer-step'"
+        }
+      },
+      "optimizer前DP参数requires_grad bitwise-level一致性检查": {
+        "name": "model-before-optimizer-step阶段DP参数requires_grad bitwise-level一致性检查",
+        "description": "在model-before-optimizer-step阶段，检查所有data parallel组内参数的requires_grad属性bitwise-level一致性。若发现任一DP rank的requires_grad属性与其他rank不一致，表明存在同步异常或外部注入错误，可能导致optimizer.step行为分歧和训练不可复现。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-before-optimizer-step'"
+        }
+      },
+      "backward后DP参数分布高阶统计量一致性检查": {
+        "name": "model-after-backward阶段DP参数分布高阶统计量一致性检查",
+        "description": "在model-after-backward阶段，检查所有data parallel组内requires_grad=True参数的分布高阶统计量（如偏度、峰度）在各DP rank间是否一致。若发现高阶统计量不一致，表明存在分布形态异常（如注入导致的尾部变化），可检测silent error，补充均值/方差/bitwise-level一致性不足。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-after-backward'"
+        }
+      },
+      "backward后DP参数requires_grad bitwise-level一致性检查": {
+        "name": "model-after-backward阶段DP参数requires_grad属性bitwise-level一致性检查",
+        "description": "在model-after-backward阶段，检查所有数据并行（DP）组内参数的requires_grad属性在bitwise-level上的一致性。若发现任意参数在不同DP rank间requires_grad属性不一致（逐位精确比对），则表明存在同步异常或外部注入错误，属于分布式训练隐蔽bug。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-after-backward'"
+        }
+      },
+      "model-before-optimizer-step阶段DP参数分布高阶统计量一致性检查": {
+        "name": "model-before-optimizer-step阶段DP参数分布高阶统计量一致性检查",
+        "description": "在model-before-optimizer-step阶段，检查所有数据并行（DP）组内参数的分布高阶统计量（如偏度、峰度）一致性。若发现DP组内任一参数的高阶统计量不一致，表明存在同步异常或参数污染，需立即排查。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-before-optimizer-step'"
+        }
+      },
+      "backward前DP参数requires_grad属性bitwise-level一致性检查": {
+        "name": "model-before-backward阶段DP参数requires_grad属性bitwise-level一致性检查",
+        "description": "在model-before-backward阶段，检查所有data parallel组内参数的requires_grad属性在所有DP rank上bitwise-level完全一致。若发现不一致，表明存在分布式训练异常，需立即报错。该约束可有效检测注入导致的属性异常，防止后续梯度同步和参数更新错误。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-before-backward'"
+        }
+      },
+      "model-before-optimizer-step阶段DP参数requires_grad属性bitwise-level一致性检查": {
+        "name": "model-before-optimizer-step阶段DP参数requires_grad属性bitwise-level一致性检查",
+        "description": "在model-before-optimizer-step阶段，检查所有data parallel组内参数（包括嵌套子模块）的requires_grad属性bitwise-level一致性。若发现不一致，表明存在同步异常或外部注入错误，可能导致训练发散或silent error。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-before-optimizer-step'"
+        }
+      },
+      "backward后DP参数requires_grad属性bitwise-level一致性检查": {
+        "name": "model-after-backward阶段DP参数requires_grad属性bitwise-level一致性检查",
+        "description": "在model-after-backward阶段，检查所有data parallel组内参数的requires_grad属性bitwise-level一致性。若发现不一致，表明存在同步异常或外部注入错误，可能导致训练崩溃或结果不可复现。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-after-backward'"
+        },
+        "token_consumption": {
+          "prompt_tokens": 146833,
+          "completion_tokens": 6884,
+          "total_tokens": 153717,
+          "call_count": 5,
+          "model": "gpt-4.1-2025-04-14",
+          "generated_at": "2025-11-26T08:54:05.312512",
+          "iteration": 1,
+          "extraction_method": "agent_clients",
+          "updated_at": "2025-11-26T08:54:05.315361"
+        }
+      },
+      "backward前DP主权重bitwise-level一致性检查": {
+        "name": "model-before-backward阶段DP主权重bitwise-level一致性检查",
+        "description": "在model-before-backward阶段，检查所有data parallel组内主权重参数（param.weight）的bitwise-level一致性。若发现任一参数在该阶段bitwise-level不一致，则判定为DP一致性异常，表明存在未同步的参数修改或外部注入异常。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "dp": "> 1",
+          "stage": "= 'model-before-backward'"
+        },
+        "token_consumption": {
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "total_tokens": 0,
+          "call_count": 0,
+          "model": "",
+          "generated_at": "2025-11-26T08:46:28.217159",
+          "iteration": 2,
+          "extraction_method": "chat_result.cost",
+          "updated_at": "2025-11-26T08:46:28.218447"
+        }
+      }
+    },
+    "tensor_parallel": {
+      "shared_experts权重不一致性检查": {
+        "name": "shared_experts权重不一致性检查",
+        "description": "在model-after-backward阶段，检查shared_experts权重在TP通信组间的不一致性。具体来说shared_experts在不同的tp组间，cksum的值应该是不相等的。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "stage": "= 'model-after-backward'",
+          "tp": "> 1"
+        }
+      },
+      "LayerNorm权重一致性检查": {
+        "name": "LayerNorm权重一致性检查",
+        "description": "检查model-after-backward阶段，检查layernorm权重在DP,TP通信组间的一致性",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "stage": "= 'model-after-backward'",
+          "tp": "> 1"
+        }
+      },
+      "Router权重一致性检查": {
+        "name": "Router权重一致性检查",
+        "description": "检查model-after-backward阶段，router权重参数在TP通信组间的完全复制一致性",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "tp": "> 1"
+        }
+      }
+    },
+    "pipeline_parallel": {
+      "前向传播参数不变性检查": {
+        "name": "前向传播阶段参数cksum不变性检查",
+        "description": "在model-after-forward-mbs-{i}阶段，每个参数矩阵不会得到更新，意味着其权重的cksum值不应发生变化。即不同stage，同一个gpu上的同一参数矩阵的cksum相同。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "pp": "> 1",
+          "stage": "LIKE 'model-after-forward-mbs-%'"
+        }
+      },
+      "前向阶段梯度应为空检查": {
+        "name": "前向阶段梯度应为空",
+        "description": "在 model-after-forward-mbs-% 阶段，梯度相关字段（grad_cksum/grad_shape/grad_type）必须为空。这里的'为空'包括：JSON 中的 null（SQL 里的 NULL）和 JSON 中的字符串 'null'",
+        "type": "validity",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {
+          "stage": "LIKE 'model-after-forward-mbs-%'"
+        }
+      }
+    },
+    "zero_optimization": {},
+    "model_integrity": {
+      "冻结参数不更新检查": {
+        "name": "冻结参数不更新（requires_grad=false）检查",
+        "description": "对于 requires_grad=false 的参数，其 cksum 在同一训练 step 内不应因 optimizer step 改变；即任一 model-after-forward-mbs-% 阶段与 model-after-optimizer-step 阶段的 cksum 保持一致。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {}
+      },
+      "冻结参数梯度严格为空检查": {
+        "name": "冻结参数梯度严格为空",
+        "description": "requires_grad=false 的参数在任意阶段，梯度相关字段（如 grad_cksum/grad_shape/grad_type）以及 main_grad 均应为 null（或不存在）；一旦出现非空，判定为“冻结失效”。",
+        "type": "validity",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {},
+        "applicable_conditions": {}
+      },
+      "grad/main_grad 的形状与类型匹配": {
+        "name": "grad/main_grad 的形状与类型匹配",
+        "description": "若梯度存在（grad_cksum 或 main_grad_cksum 非空，且需排除 JSON 返回的字符串 ‘null’），则要求 grad_shape 等于 shape、grad_type 等于 type，仅在双方字段均实际存在且不为 ‘null’ 时进行比较，以避免误报。",
+        "type": "validity",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {
+          "note": "若数据中未包含 grad_shape/grad_type/main_grad_* 等键，JSON_EXTRACT 将返回 NULL，不会触发误报。"
+        },
+        "applicable_conditions": {}
+      },
+      "权重共享（weight tying）一致性（嵌入与输出权重": {
+        "name": "权重共享（weight tying）一致性检查（嵌入-输出）",
+        "description": "对于 输入头（如 word_embeddings.weight） 与输出头（如 output_layer.weight）构成的权重共享对，在阶段model-after-optimizer-step中，同一（dp，tp）并行策略的cksum 应相等。",
+        "type": "consistency",
+        "logic": "",
+        "tables": [
+          "coredump"
+        ],
+        "params": {
+          "note": "依赖 share_embeddings；若未启用或未采集到对应参数名，该查询可能返回空集"
+        },
+        "applicable_conditions": {}
+      }
+    },
+    "training_progress": {}
+  },
+  "metadata": {
+    "version": "1.2",
+    "description": "预定义的分布式训练数据一致性检查约束",
+    "last_updated": "2025-11-01",
+    "constraint_types": {
+      "consistency": "一致性约束，检查数据在不同节点间的一致性",
+      "validity": "有效性约束，检查数据的有效性和合理性",
+      "completeness": "完整性约束，检查数据的完整性",
+      "partition": "分区约束，检查数据分片的正确性"
+    },
+    "applicable_condition_operators": [
+      "> 1",
+      ">= 1",
+      ">= 2",
+      "= 1",
+      "!= 0"
+    ]
+  }
+}

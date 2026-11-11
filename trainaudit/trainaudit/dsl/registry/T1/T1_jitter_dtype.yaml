@@ -1,0 +1,19 @@
+id: T1-jitter-preserves-dtype
+template: PAYLOAD_FIELD_COMPARE
+family: F3
+min_tier: T1_FW_METADATA
+description: >
+  apply_input_jitter must produce output with the same dtype as input.
+  Catches M-024 (Megatron's torch.distributions.Uniform creates fp32
+  tensors regardless of input, silently promoting bf16 input → fp32).
+  The Megatron adapter active probe (mining/megatron.py) wraps
+  apply_input_jitter and emits jitter.probe with pre-computed
+  `dtypes_match`, so the rule body is dsl_native equality.
+evidence_bugs:
+  - M-024
+scope:
+  hookpoint: jitter.probe
+bound:
+  kind: equality
+  field: dtypes_match
+  value: true

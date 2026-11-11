@@ -1,0 +1,24 @@
+id: T0-norm-output-unit-rms
+template: TENSOR_STAT_BOUND
+family: F8
+min_tier: T0_PYTORCH
+description: >
+  Normalizer layers (LayerNorm/RMSNorm/GroupNorm) should produce output
+  with per-feature RMS in [0.5, 2.0]. Catches O-NEW-1 (RMSNorm output way
+  off, e.g. rms ~ 0.33).
+evidence_bugs:
+  - O-NEW-1
+scope:
+  hookpoint: module.fwd.post
+  payload_path: $.output
+  tensor_signature: true
+precondition:
+  expr: "CAST(json_extract(payload, '$.is_normalizer') AS BOOLEAN) = true"
+bound:
+  kind: bound
+  field: rms
+  conditions:
+    - op: ">="
+      value: 0.5
+    - op: "<="
+      value: 2.0

@@ -1,0 +1,21 @@
+id: T1-replica-cksum-equal
+template: STRUCTURAL_PRESENCE
+family: F1
+min_tier: T1_FW_METADATA
+description: >
+  For every parameter labelled as replica (not shard / not expert_local),
+  its checksum must be equal across all ranks in the replica group at
+  build time. Catches B1 / M-005 router-weight init divergence.
+evidence_bugs:
+  - B1
+  - M-005
+scope:
+  hookpoint: build.snapshot
+  payload_path: $.cross_rank_cksums[*]
+precondition:
+  # only check entries with group_size > 1; size-1 groups are degenerate
+  expr: "CAST(json_extract(row_payload, '$.group_size') AS INTEGER) > 1"
+bound:
+  kind: equality
+  field: all_equal
+  value: true

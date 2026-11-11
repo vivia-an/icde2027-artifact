@@ -1,0 +1,87 @@
+{
+ "evidence": {
+  "hook_in_witness": true,
+  "mode": "guarded",
+  "report_hook": "fw.param_gathered",
+  "window": 1
+ },
+ "form": "tuple",
+ "id": "G1_param_replica",
+ "notes": "Parameter replica equality [guarded]: records of the same (step, hook, rkey, slice) at fw.param_gathered on two ranks of the same replica class (REPLICA) have equal sha256 checksums.",
+ "phase": {
+  "eq": [
+   [
+    "t1.hook",
+    "t2.hook"
+   ],
+   [
+    "t1.rkey",
+    "t2.rkey"
+   ],
+   [
+    "t1.slice",
+    "t2.slice"
+   ]
+  ],
+  "hooks": {
+   "t1": [
+    "fw.param_gathered"
+   ],
+   "t2": [
+    "fw.param_gathered"
+   ]
+  },
+  "steps": [
+   {
+    "base": "t1",
+    "offset": 0,
+    "var": "t2"
+   }
+  ]
+ },
+ "profile": "layout_v3",
+ "schema": {
+  "args": [
+   {
+    "attr": "t1.cksum"
+   },
+   {
+    "attr": "t2.cksum"
+   }
+  ],
+  "op": "eq"
+ },
+ "topo": {
+  "atoms": [
+   {
+    "grp": "REPLICA",
+    "guard": "topo",
+    "ordered": true,
+    "vars": [
+     "t1",
+     "t2"
+    ]
+   }
+  ],
+  "dims": [
+   "REPLICA"
+  ]
+ },
+ "vars": [
+  {
+   "name": "t1",
+   "rel": "State"
+  },
+  {
+   "name": "t2",
+   "rel": "State"
+  }
+ ],
+ "witness": [
+  "t1.step",
+  "t1.obj",
+  "t1.hook",
+  "t1.rank",
+  "t2.rank"
+ ]
+}
